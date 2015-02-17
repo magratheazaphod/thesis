@@ -1,0 +1,16 @@
+#list of ignored files
+past\ theses/
+ucbthesis.pdf
+ucbthesis.cls
+jdthesis.pdf
+thesis.pdf
+*.aux
+*.log
+thesis*
+jdthesis.synctex.gz
+jdthesis.run.xml
+jdthesis.lot
+jdthesis.lof
+jdthesis.toc
+jdthesis.bcf
+

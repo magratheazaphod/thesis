@@ -2,6 +2,9 @@
 
 \documentclass{ucbthesis}
 \usepackage{biblatex}
+\usepackage[super]{nth}
+\setcounter{tocdepth}{2}
+
 
 % To compile this file, run "latex thesis", then "biber thesis"
 % (or "bibtex thesis", if the output from latex asks for that instead),
@@ -17,7 +20,7 @@
 
 \newtheorem{theorem}{Jibberish}
 
-\bibliography{references}
+\bibliography{jdbiblio}
 
 \hyphenation{mar-gin-al-ia}
 \hyphenation{bra-va-do}
@@ -60,14 +63,14 @@
 
 \begin{frontmatter}
 
-\begin{dedication}
-\null\vfil
-\begin{center}
-To mom and dad\\\vspace{12pt}
-without whom none of this could have been possible
-\end{center}
-\vfil\null
-\end{dedication}
+%\begin{dedication}
+%\null\vfil
+%\begin{center}
+%To mom and dad\\\vspace{12pt}
+%without whom none of this could have been possible
+%\end{center}
+%\vfil\null
+%\end{dedication}
 
 % You can delete the \clearpage lines if you don't want these to start on
 % separate pages.
@@ -79,8 +82,7 @@ without whom none of this could have been possible
 \listoftables
 
 \begin{acknowledgements}
-I would like to thank Douglas Adams
-
+Before all else, none of this could have been possible without the love of my mom and dad...
 \end{acknowledgements}
 
 \end{frontmatter}
@@ -91,9 +93,11 @@ I would like to thank Douglas Adams
 
 \include{chapter1_intro}
 \include{chapter2_coupling}
-\include{chapter3_meiyu}
-\include{chapter4_model}
-\include{chapter5_conclusion}
+\include{chapter3_storms}
+\include{chapter4_theory}
+\include{chapter5_meiyu}
+\include{chapter6_model}
+\include{chapter7_conclusion}
 
 % \appendix
 % \chapter{More Monticello Candidates}

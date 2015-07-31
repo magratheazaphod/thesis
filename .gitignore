@@ -7,7 +7,7 @@ thesis.pdf
 *.aux
 *.log
 thesis*
-jdthesis.synctex.gz
+*.synctex.gz
 jdthesis.run.xml
 jdthesis.lot
 jdthesis.lof

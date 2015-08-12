@@ -8,10 +8,12 @@ thesis.pdf
 *.log
 thesis*
 *.synctex.gz
+*.synctex.gz(busy)
 jdthesis.run.xml
 jdthesis.lot
 jdthesis.lof
 jdthesis.toc
 jdthesis.bcf
 *.blg
-
+*.bbl
+*.out

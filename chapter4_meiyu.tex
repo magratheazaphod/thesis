@@ -1,4 +1,4 @@
-\chapter{Statistics of the South Flood-North Drought: A new catalog of rainbands in the East Asian monsoon}
+ch4\chapter{Statistics of the South Flood-North Drought: A new catalog of rainbands in the East Asian monsoon}
 
 %consider uploading your actual code to this chapter for reproducibility.
 
@@ -511,28 +511,28 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 %%FIGURE 5.1 - displaying continuous maximum criterion required to attempt rainband fit
 \begin{figure}[htbp]
-\noindent\includegraphics[width=36pc]{Figures/ch5/S1}
+\noindent\includegraphics[width=36pc]{Figures/ch4/S1}
 \caption{The first step of the rainband detection algorithm checks to see whether a five-degree continuous longitudinal band of precipitation maxima above 10 mm day$^{-1}$ exists. If so, a rainband fit is attempted. a) 25 May 2007 - the continuous maximum criterion is met and a fit is attempted. b) 11 June 2007 - although there is abundant rainfall in some locations, it appears not to be frontal and the continuous maximum criterion is failed. No fit is attempted.}
 \label{fig:f51}
 \end{figure}
 
 %%FIGURE 5.2 - How the convergent fit algorithm works.
 \begin{figure}[htbp]
-\noindent\includegraphics[width=36pc]{Figures/ch5/S2}
+\noindent\includegraphics[width=36pc]{Figures/ch4/S2}
 \caption{Display of the functionality of the recursive convergent algorithm. On 29 April 2007, a strong maximum in southernmost China skews our initial rainband fit (a), but the algorithm eventually converges on the most prominent coherent band via tighter windowing (d).}
 \label{fig:f52}
 \end{figure}
 
 %%FIGURE 5.3 - Procedure for finding double rainbands
 \begin{figure}[htbp]
-\noindent\includegraphics[width=36pc]{Figures/ch5/S3}
+\noindent\includegraphics[width=36pc]{Figures/ch4/S3}
 \caption{a) The algorithm converges on the strongest rainband, around 37N (defined as the ``primary rainband''). b) The rainfall associated with the primary rainband is removed, and we check for the presence of another rainband (a ``secondary rainband''), again using the continuous maximum criterion.}
 \label{fig:f53}
 \end{figure}
 
 %%FIGURE 5.4 - Quality Control algorithm used to determine inclusion in statistics
 \begin{figure}[htbp]
-\noindent\includegraphics[width=36pc]{Figures/ch5/S4}
+\noindent\includegraphics[width=36pc]{Figures/ch4/S4}
 \caption{A quality control algorithm is used to exclude poor fits. a) 18 August 2007 - Days with a high Taiwan fraction (here, corresponding to the passage of Typhoon Sepat) are excluded from our statistics. b) June 4 2007 - A high-quality fit is achieved. c) 17 April 2007 - Although a fit is reached, it explains the distribution of daily rainfall poorly and is therefore excluded from rainband statistics. d) 21 May 2007 (same day as Figure S3) - An initial fit appears to be of poor quality ($Q<.6$). However, after finding a secondary rainband, we determine that conditional quality scores $Q_1$ and $Q_2$ are high, and the day is included in our statistics.}
 \label{fig:f54}
 \end{figure}
@@ -544,7 +544,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 %%FIGURE 5.5 Hovmöller diagram of Meiyu latitude occupancy, 1951-2007. Produced by MATLAB scripts meiyufig1.m and meiyustats_compact.m.
 \begin{figure}[htbp]
-\noindent\includegraphics[width=30pc]{Figures/ch5/meiyu_hovmoller}
+\noindent\includegraphics[width=30pc]{Figures/ch4/meiyu_hovmoller}
 \caption{Hovm\"oller climatology of East Asian rainfall, 1951-2007, with important time periods marked as follows: 1 - Spring Rains; 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; 5 - Fall Rains. a) Precipitation averaged over the longitudes 100-123$^{\circ}$ E; b) Probability of occurrence of a rainband for each day and latitude (both primary and secondary, in percentage), smoothed in time with a 9-day running box filter; c) Probability of primary rainband occurrence and mean intensity (9-day running mean); d) The conditional probability of a secondary rainband given the presence of a primary rainband, as well as the mean tilt and length of primary rainband events (9-day running mean).}
 \label{fig:hov}
 \end{figure}
@@ -552,7 +552,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 %%FIGURE 5.6 Changes in Meiyu and rainfall behavior between 1951-1979 and 1980-2007
 \begin{figure}[htbp]
-\noindent\includegraphics[width=36pc]{Figures/ch5/changes}
+\noindent\includegraphics[width=36pc]{Figures/ch4/changes}
 \caption{a) 15-day running mean of the change in rainfall between 1951-1979 and 1980-07, with 95\%/99\% confidence level marked by single/double cross-hatches; b) 15-day running mean of the change in rainband frequency between 1951-1979 and 1980-07, with two-degree smoothing in latitude and confidence levels marked as in a). The significance of rainfall changes is calculated by a permutation method. Time periods are marked as in Figure 1.}
 \label{fig:changes}
 \end{figure}
@@ -560,35 +560,35 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 %%FIGURE 5.7 Climatology of alternative metrics of China rainfall
 \begin{figure}[htb]
-\includegraphics[width=36pc]{Figures/ch5/met_climo}
+\includegraphics[width=36pc]{Figures/ch4/met_climo}
 \caption{Yearly climatology of alternative metrics of China rainfall; a) Latitude of maximum precipitation and of precipitation centroid (metrics $M_1-M_2$) b) Intensity of maximum precipitation over China ($M_3$) c) Mean intensity of China rainfall, North China rainfall and South China rainfall ($M_4-M_6$) d) Frequency of North China rainfall and South China rainfall ($M_7-M_8$). China region is defined as 105-123$^{\circ}$E and 20-40$^{\circ}$N, North China as 107.5-125$^{\circ}$E and 37-42$^{\circ}$N and South China as 107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N.
 \label{fig:type_changes}
 \end{figure}
 
 %%FIGURE 5.8 Percentage of total rainfall at each point that is delivered through rainbands
 \begin{figure}[htb]
-\includegraphics[width=36pc]{Figures/ch5/frontpct}
+\includegraphics[width=36pc]{Figures/ch4/frontpct}
 \caption{Percentage of total rainfall at each point in China that is delivered through rainbands (yearly average).}
 \label{fig:frontpct}
 \end{figure}
 
 %%FIGURE 5.9 Decadal changes in different rainfall types
 \begin{figure}[htb]
-\noindent\includegraphics[width=36pc]{Figures/ch5/decadal_front}
+\noindent\includegraphics[width=36pc]{Figures/ch4/decadal_front}
 \caption{1980-2007 versus 1951-1979 changes in frontal and local rainfall for full year (a and b), Pre-Meiyu (c and d) and Post-Meiyu (e and f), with significance at the 95\%/99\% level marked by single/double hatches.}
 \label{fig:decadal_front}
 \end{figure}
 
 %% FIGURE 5.10 Climatology of rainfall stages including rainfall, jet and most likely rainband configuration, and longitudinal averages.
 \begin{figure}
-\noindent\includegraphics[width=36pc]{Figures/ch5/climo}
+\noindent\includegraphics[width=36pc]{Figures/ch4/climo}
 \caption{Climatology of East Asian rainfall stages showing rainfall (shading), jet kernel density (contours of probability density in units of $10^{-4}$) and most common rainband position during that stage. Sidebars shows, for each time period, the longitude average over 105-123$^{\circ}$E of rainfall (thin blue line, units of mm day$^{-1}$), jet kernel density (red line, units of $10^{-4}$) and rainband position (dashed black line, absolute probability in \%, 1-degree latitude smoothing). From the Pre-Meiyu to Post-Meiyu, a peak in preferred jet latitude consistently occurs 5 degrees north of a corresponding maximum in rainband frequency.}
 \label{fig:climo}
 \end{figure}
 
 %% FIGURE 5.11 - 2D spatial distribution of change showing a) full year b) Pre-Meiyu and c) Post-Meiyu
 \begin{figure}
-\noindent\includegraphics[width=36pc]{Figures/ch5/changes_2d}
+\noindent\includegraphics[width=36pc]{Figures/ch4/changes_2d}
 \caption{a) Whole year mean rainfall change, showing the South Flood-North Drought pattern; b) Rainfall changes during the Pre-Meiyu (days 121-160) with contours of jet density change overlain; c) Same as c, but for the Post-Meiyu (days 201-273). Statistical significance at 95\%/99\% level overlain with single/double hatches. Sidebars show, for each time period, the longitude average over 105-123$^{\circ}$E of changes in rainfall (thin blue line, units of mm day$^{-1}$), jet kernel density (red line, units of $10^{-4}$) and rainband position (dashed black line, absolute probability in \%, 1-degree latitude smoothing).}
 \label{fig:changes_2d}
 \end{figure}
@@ -596,7 +596,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 %% FIGURE 5.12 - Changes in jet mean between 1951-1979 and 1980-2007 + scatter plots of jet and rainband monthly anomalies.
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=42pc]{Figures/ch5/jet}
+\includegraphics[width=42pc]{Figures/ch4/jet}
 \caption{a) 7-day running mean latitude of the westerly jet in the region 90-130$^\circ$E for the years 1958-1979 (blue, solid) and 1980-2001 (red, dashed). Bootstrapped 95\% confidence intervals are shaded. Time periods: 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; b) Plot of monthly anomalies in rainband frequency versus monthly anomalies in jet latitude during days 121-150 (May) for 1958-1979 (blue X) versus 1980-2001 (red circle); c) Same as b), but showing 30-day anomalies of rainband latitudes during the Post-Meiyu (201-230 and 231-260, each set of 30 days treated as a separate point). Histograms of anomalies are also shown on the side of each figure.}
 \label{fig:jet_seasonal}
 \end{center}

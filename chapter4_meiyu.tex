@@ -98,7 +98,7 @@ After running the algorithm for all 20,819 days from 1 January 1951 to 31 Decemb
 
 \subsection{Comparison with alternative metrics}
 
-	It is reasonable to suggest that some simpler metric ought to exist that reproduces the results of the Rainband Detection Algorithm (RDA). In this section, we test a suite of daily metrics and use the same bootstrapping algorithms used to calculate the statistical significance of changes in observed yearly rainfall. These metrics are as follows: 1) Latitude of maximum precipitation; 2) centroid latitude of daily precipitation; 3) Intensity of maximum precipitation over China (defined as 100-123$^{\circ}$E and 20-40$^{\circ}$N); 4) Mean intensity of China rainfall; 5) Mean intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N); 6) Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N); 7) Frequency of North China rainfall and 8) Frequency of South China rainfall. The definitions of the North China and South China regions are taken from \citep{Yu2010}. Their climatology during each of the previously defined time periods (Spring Rains, Pre-Meiyu, Meiyu, Post-Meiyu, Fall Rains and Full Year) is shown in Figure ~\ref{fig:met_climo}, and statistical properties shown in Tables ~\ref{table:t59}-~\ref{table:t511}. The significance of changes in each metric between 1951-1979 and 1980-2007 is listed in Table ~\ref{table:t512}.
+	It is reasonable to suggest that some simpler metric ought to exist that reproduces the results of the Rainband Detection Algorithm (RDA). In this section, we test a suite of daily metrics and use the same bootstrapping algorithms used to calculate the statistical significance of changes in observed yearly rainfall. These metrics are as follows: 1) Latitude of maximum precipitation; 2) centroid latitude of daily precipitation; 3) Intensity of maximum precipitation over China (defined as 100-123$^{\circ}$E and 20-40$^{\circ}$N); 4) Mean intensity of China rainfall; 5) Mean intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N); 6) Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N); 7) Frequency of North China rainfall and 8) Frequency of South China rainfall. The definitions of the North China and South China regions are taken from \citep{Yu2010}. Their climatology during each of the previously defined time periods (Spring Rains, Pre-Meiyu, Meiyu, Post-Meiyu, Fall Rains and Full Year) is shown in Figure ~\ref{fig:type_changes}, and statistical properties shown in Tables ~\ref{table:t59}-~\ref{table:t511}. The significance of changes in each metric between 1951-1979 and 1980-2007 is listed in Table ~\ref{table:t512}.
 	
 	Table ~\ref{table:t512} demonstrates that the metrics produce substantially different aspects of the statistical significance of twentieth-century rainfall changes. A simple area average of North China rainfall reveals the major decline in rainfall in the area at the end of the \nth{20} century, but fails to elucidate the southward shift in rainband latitude visible in Figure ~\ref{fig:changes}a as revealed by use of RDA. Therefore, the increased complexity of RDA is justified by its ability to incorporate several aspects of rainfall change into a single formalism, and its apparently greater sensitivity to changes in attributes.
 
@@ -188,9 +188,10 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 	APHRODITE precipitation data is publicly available at \url{http://www.chikyu.ac.jp/precip/index.html}. Ferret, a NOAA product, was used for some data analysis and preliminary plot generation and is freely available at \url{http://ferret.pmel.noaa.gov/Ferret/}. The rainband detection algorithm and the majority of data analysis code were written in MATLAB. A full database of rainband statistics from 1 January 1951 to 31 December 2007 and associated MATLAB and Ferret codes used to produce results are available at the author's website: \url{http://www.atmos.berkeley.edu/~jessed/data.html}, and key figures are reproduced at \url{http://www.atmos.berkeley.edu/~jessed/myfigures.html}. This work was supported by NSF grants EAR-0909195 and EAR-1211925, which allowed the presentation of preliminary results in conference settings and the feedback of our peers. We also acknowledge NSFC (National Natural Science Foundation of China) grant \#40921120406 for enabling our collaboration with Professor Yanjun Cai of IEECAS in Xi'an, which led to the present work. We thank Jinqiang Chen and an anonymous reviewer for valuable suggestions on a version of this chapter intended for publication.
 	
-\newpage	
 	
+\newpage	
 \section{Tables and Figures}
+\clearpage	
 
 %%%% TABLES %%%%
 
@@ -560,21 +561,21 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 %%FIGURE 5.7 Climatology of alternative metrics of China rainfall
 \begin{figure}[htb]
 \includegraphics[width=36pc]{Figures/ch5/met_climo}
-\caption{Climatology of alternative metrics of China rainfall. a) b) c) d).}
+\caption{Yearly climatology of alternative metrics of China rainfall; a) Latitude of maximum precipitation and of precipitation centroid (metrics $M_1-M_2$) b) Intensity of maximum precipitation over China ($M_3$) c) Mean intensity of China rainfall, North China rainfall and South China rainfall ($M_4-M_6$) d) Frequency of North China rainfall and South China rainfall ($M_7-M_8$). China region is defined as 105-123$^{\circ}$E and 20-40$^{\circ}$N, North China as 107.5-125$^{\circ}$E and 37-42$^{\circ}$N and South China as 107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N.
 \label{fig:type_changes}
 \end{figure}
 
 %%FIGURE 5.8 Percentage of total rainfall at each point that is delivered through rainbands
 \begin{figure}[htb]
 \includegraphics[width=36pc]{Figures/ch5/frontpct}
-\caption{Percentage of total rainfall at each point in China that is delivered through rainbands (yearly average)}
+\caption{Percentage of total rainfall at each point in China that is delivered through rainbands (yearly average).}
 \label{fig:frontpct}
 \end{figure}
 
 %%FIGURE 5.9 Decadal changes in different rainfall types
 \begin{figure}[htb]
 \noindent\includegraphics[width=36pc]{Figures/ch5/decadal_front}
-\caption{1980-2007 versus 1951-1979 changes in frontal and local rainfall for full year (a and b), Pre-Meiyu (c and d) and Post-Meiyu (e and f)}
+\caption{1980-2007 versus 1951-1979 changes in frontal and local rainfall for full year (a and b), Pre-Meiyu (c and d) and Post-Meiyu (e and f), with significance at the 95\%/99\% level marked by single/double hatches.}
 \label{fig:decadal_front}
 \end{figure}
 

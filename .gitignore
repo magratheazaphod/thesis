@@ -1,4 +1,6 @@
 #list of ignored files
+*blx.bib
+*eps-converted-to.pdf
 past\ theses/
 ucbthesis.pdf
 ucbthesis.cls

@@ -3,10 +3,14 @@
 \documentclass{ucbthesis}
 \usepackage[url=false,isbn=false,natbib=true]{biblatex}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[super]{nth}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{textcomp}
+\usepackage{multirow}				%allows for columns that span multiple rows in tables
 \setcounter{tocdepth}{2}
+\newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}	%silly command allows for inclusion of tildes'
 
 % To compile this file, run "latex thesis", then "biber thesis"
 % (or "bibtex thesis", if the output from latex asks for that instead),
@@ -84,7 +88,7 @@
 \listoftables
 
 \begin{acknowledgements}
-Before all else, none of this could have been possible without the love of my mom and dad...
+Before all else, none of this could have been possible without the love of my mom and dad...Thank you to Amy Honigmann for keeping me sane, and to Sonya Juang for believing in me and helping me to push through to the finish line.
 \end{acknowledgements}
 
 \end{frontmatter}
@@ -95,11 +99,10 @@ Before all else, none of this could have been possible without the love of my mo
 
 \include{chapter1_intro}
 \include{chapter2_coupling}
-\include{chapter3_storms}
-\include{chapter4_theory}
-\include{chapter5_meiyu}
-\include{chapter6_model}
-\include{chapter7_conclusion}
+\include{chapter3_theory}
+\include{chapter4_meiyu}
+\include{chapter5_model}
+\include{chapter6_conclusion}
 
 % \appendix
 

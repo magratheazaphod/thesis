@@ -1,14 +1,29 @@
-\chapter{Dynamics of Asian Rainfall Coupling : an LMDZ Modeling Effort}
+\chapter{Dynamics of Asian Rainfall Coupling: Model Verification }
 
 \section{Abstract}
-The prior sections have put forth two hypotheses. First, that moisture transport from the Bay of Bengal to China across the Yunnan Plateau links the variability of the two monsoons. Second of all, that the ``South Flood-North Drought'' is also a reflection of the southward translation of the tropospheric jet's seasonal cycle.
+The prior sections have put forth two hypotheses. First, that moisture transport from the Bay of Bengal to China across the Yunnan Plateau links the variability of the two monsoons. Second of all, that the ``South Flood-North Drought'' is also a reflection of the southward translation of the tropospheric jet's seasonal cycle. Both of these have been found from a statistical, data analytic perspective. In this section we seek to test their salient dynamical features with certain idealized runs in the LMDZ global climate model (GCM). These runs can also help to test whether the coupled mode of Asian rainfall variability could be related to the South Flood-North Drought.
 
-Both of these have been found from a statistical, data analytic perspective. In this section we seek to reproduce their salient features in the LMDZ global climate model (GCM). Finally, we also seek to answer whether these phenomena are further linked, since both invoke substantial changes in Asian climate in July and August.
+\section{Associated Changes}
 
-\section{Observations of linked change}
+Bay of Bengal SST changes between years of positive and negative EOF1. We create a composite positive EOF1 anomaly of the five most positive Julys and five most positive Augusts, and a corresponding negative composite (shown below). These composites are defined by...
 
-Most importantly, should show that All-Asia EOF1 also entails massive shifts in the jet.
+It is also found that variations in All-Asia EOF1 entail massive global shifts in the jet. These changes are shown below. Significant changes in jet strength are found spanning the entire globe in a wavetrain pattern. These patterns are also found in XXX reanalysis, suggesting that they are real. Such global wavetrain patterns have been found in previous work. \citet{Ding2007} (Ding and Wang) finds a link between Indian monsoon convection and midlatitude circulation, which they attribute ultimately to North Atlantic forcing. \citet{Liu2012} similarly found that North Atlantic cooling was a potential cause of a global reduction in monsoon intensity. \citet{Kosaka2012} focused on the influence of Eurasian wavetrains on East Asian rainfall via the Silk Road pattern, and concluded given the chaotic nature of such forcing that East Asian rainfall was fundamentally unpredictable. Here we focus also on the converse hypothesis that Indian monsoon rainfall generates a substantial circulation response downstream in central China, and possibly even downstream, although the chain of causality is difficult to establish.
 
 \section{Description of Runs}
 
+The physical package of choice are the ``new physics'' from LMDZ5B, which feature improvement in...CITE. As described in Section 4, the LMDZ model has been extensively tested in the vicinity of the Tibetan Plateau and displays improved performance relative to other model. We run the model at 280x280x39 with grid spacing of ~35km in latitude and ~45 km in longitude at the equator, and a coarser grid of outside of our region of interest. In \cite{Hourdin2013}, increased horizontal resolution in LMDZ was found to improve the overall realism of tropospheric features, including the latitude of the tropospheric jet. 
+
+The LMDZ model also shows improved performance in reproducing the climatological distribution of isotopes relative to other models such as ECHAM, especially near the Tibetan Plateau. Our runs did not enable the isotope package, but our use of LMDZ is also further informed by the possibility of future isotope-enabled runs.
+
+Sea ice and sea surface temperature (SST) boundary conditions are obtained from AMIP reanalysis, available at .... Unless otherwise specified, we use climatological SST forcing. The first 10 years are discarded as spin-up time, and we treat the next 40 years as the climatological background. The conclusion of this 50 year background run serves as the initial conditions for subsequent runs below.
+
+On top of this background, we impose several forcings: 1) The removal of the Yunnan Plateau; 2) The raising of the Yunnan Plateau to Tibetan Plateau height; 3) An SST run in which Bay of Bengal SST is set to its anomalous value during years of positive EOF 1; 4) A corresponding SST run in which Bay of Bengal SST is set to its oppositve value; (OPTIONAL: 5) A ``nudging run'' in which the configuration of upper level winds is forced to jet configurations associated with EOF1). These runs are carried out imposed on the base state. A substantial change in topography would likely change climatological SST nearby, but as a first order test we retain existing SST.
+
+Our run is run without the radiative effects of aerosols or a daily ozone climatology, in the name of simplicity. A bucket model is used for land surface hydrology. LMDZ's default soil model is employed.
+
+El Ni\~no is known to influence Indian rainfall, but here we adjust only Bay of Bengal SST in order to test whether local dynamical control over India alone can induce a response over China.
+
+Six separate years were also simulated with both strongly positive and strongly negative EOF1: 1954, 1965, 1974, 1987, 1993 and 1998 as years of strongly positive EOF1 (3.50, 2.45, 2.27, 3.61, 2.41 and 5.10 values of EOF1), while 1959, 1973, 1976, 1978, 1994, 2006 are all years of strong negative EOF1 (-3.04, -3.05, -2.77, -4.23, -5.28 and -2.62 respectively). SHOULD MENTION ASSOCIATION WITH ENSO OF THESE YEARS...
+
 \section{Results and Interpretation}
+In our runs the following diagnostic metrics are used: Moist Static Energy (MSE) as defined in Chapter 4; potential vorticity, whose contours reflect circulation to first order; column-integrated moisture transport $qu-qv$. These metrics are preferred to model rainfall, because the model mechanisms that produce convection are not transparent and may be highly model-dependent. In particular, on the daily scale there is no propagation of storms. Therefore, when considering model precipitation, we consider its mean on longer time scales or cumulative total.

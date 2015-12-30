@@ -1,7 +1,72 @@
 %% Jesse Day's Ph. D. thesis, based on ucbthesis template.
 
 \documentclass{ucbthesis}
-\usepackage[url=false,isbn=false,natbib=true]{biblatex}
+
+%% BIBLATEX COMMANDS
+\usepackage[bibstyle=authoryear,citestyle=authoryear,natbib=true,url=false,isbn=false,maxcitenames=2,maxbibnames=99,firstinits=false,uniquename=false,uniquelist=false]{biblatex}
+%need to set both bibstyle and citestyle to authoryear. natbib allows citet and citep citation commands. uniquename=false and
+%uniquelist=false restricts citations to last name only.
+
+%consistently use last-name first convention.
+\DeclareNameAlias{default}{last-first/first-last}
+\DeclareNameAlias{sortname}{last-first/first-last} %Surname of first author comes first, afterwards surname comes 2nd.
+
+%remove pesky add-ons from citations:
+\renewbibmacro{in:}{}
+\DeclareFieldFormat{pages}{#1} %removes pp. from "pp. x-y"
+\DeclareFieldFormat[article]{volume}{\textbf{#1}\addcomma\space} %boldfaces journal volume
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1\isdot}} %avoids adding unnecessary periods?
+
+%remove special font from DOI numbers
+\DeclareFieldFormat{doi}{\addspace doi\addcolon\addspace#1}
+
+\renewbibmacro*{volume+number+eid}{% only shows volume number and not issue
+  \printfield{volume}}
+  
+\renewbibmacro*{date}{% Redefining date so that it only shows year of publication
+  \unspace\printfield{labelyear}}
+ 
+%\renewbibmacro*{author+date}{% Redefining new combined field so that date is shown after authors
+%\usebibmacro{author}
+%\printtext[parens]{
+%  \usebibmacro{date}}}
+   
+\renewbibmacro*{journal}{% Redefining date so that it only shows year of publication
+\addspace\printfield{journaltitle}\addcomma}
+   
+\renewbibmacro*{journal+volume}{% Redefining new combined field so that date is shown after authors
+\addspace\usebibmacro{journal}
+\addspace\usebibmacro{volume+number+eid}
+\addspace\printfield{pages}}
+
+  
+%  
+%%% DEFINE ORDER FOR CITATION ENTRIES TO APPEAR
+%\DeclareBibliographyDriver{article}{%
+%\usebibmacro{bibindex}%
+%\usebibmacro{begentry}%
+%\usebibmacro{author}%
+%%\usebibmacro{author+date}
+%\setunit{\labelnamepunct}\newblock
+%\usebibmacro{title}%
+%\newunit
+%%\printlist{language}%
+%%\newunit\newblock
+%%\usebibmacro{byauthor}%
+%%\newunit\newblock
+%%\usebibmacro{bytranslator+others}%
+%%\newunit\newblock
+%%\printfield{version}%
+%\newunit\newblock
+%\usebibmacro{journal+volume}%
+%\newunit
+%\usebibmacro{doi+eprint+url}%
+%\newunit\newblock
+%\setunit{\bibpagerefpunct}\newblock
+%\usebibmacro{pageref}%
+%\usebibmacro{finentry}}
+
+%% OTHERS
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[super]{nth}
@@ -11,6 +76,13 @@
 \usepackage{multirow}				%allows for columns that span multiple rows in tables
 \setcounter{tocdepth}{2}
 \newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}	%silly command allows for inclusion of tildes'
+
+%%Show doi numbers correctly
+\usepackage{doi}
+\setcounter{biburlnumpenalty}{100}  % allow breaks at numbers
+\setcounter{biburlucpenalty}{100}   % allow breaks at uppercase letters
+\setcounter{biburllcpenalty}{100}   % allow breaks at lowercase letters
+
 
 % To compile this file, run "latex thesis", then "biber thesis"
 % (or "bibtex thesis", if the output from latex asks for that instead),
@@ -24,12 +96,10 @@
 % be indented (like the others), then include this line:
 % \usepackage{indentfirst}
 
-\newtheorem{theorem}{Jibberish}
-
-\bibliography{jdbiblio}
-
 \hyphenation{mar-gin-al-ia}
 \hyphenation{bra-va-do}
+
+\addbibresource{jdbiblio.bib}
 
 \begin{document}
 
@@ -62,7 +132,7 @@
 
 \maketitle
 % Delete (or comment out) the \approvalpage line for the final version.
-\approvalpage
+%\approvalpage
 \copyrightpage
 
 \include{abstract}

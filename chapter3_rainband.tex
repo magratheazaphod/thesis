@@ -79,11 +79,21 @@ After running the algorithm for all 20,819 days from 1 January 1951 to 31 Decemb
 	
 	We use bootstrapping with replacement to calculate the standard deviation of their means (Figure ~\ref{fig:jet_seasonal}a and Tables ~\ref{tab:t34}-~\ref{tab:t38} respectively). Both bootstrapping with replacement and a permutation test produce similar results; $p$-values shown are from permutation testing. Figure ~\ref{fig:changes}a uses a moving blocks bootstrap with block length of 3 days. We focus on changes in front attributes between 1951-1979 and 1980-2007 (Tables ~\ref{tab:t35} and ~\ref{tab:t36}), and also repeat our methodology for 1979-1993 versus 1994-2007, since other authors have found a significant shift between these sets of years.
 
-	Below we attach the relevant code used to perform bootstrapping with replacement, without replacement (permutation test) and the moving blocks bootstrap.
+	Below we attach the relevant code used to perform bootstrapping of Meiyu statistics without replacement (permutation test) and the moving blocks bootstrap for calculating significance of differences. Other code is attached in an appendix.
 
-...%code
+%\begin{lstinputlisting}[language=MATLAB]{mybs.m}
 
+%\begin{lstinputlisting}[language=MATLAB]{mybs_diff.m}
 
+\clearpage
+\subsubsection{Permutation test of significance of changes}
+\lstinputlisting[language=MATLAB]{myperm.m}
+
+\clearpage
+\subsubsection{Moving blocks bootstrap for significance of changes}
+\lstinputlisting[language=MATLAB]{mybs_diff_blocks.m}
+
+\clearpage
 \section{Results}
 
 \subsection{Rainband Climatology}
@@ -485,7 +495,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 \begin{figure}
 \centering
 \noindent\includegraphics[width=36pc]{Figures/ch3/changes_2d_nojet}
-\caption{Difference in mean rainfall between 1980-2007 and 1951-1979. The South Flood-North Drought pattern is visible between 110-125^{\circ}$ E and 22-42^{\circ}$ N over mainland China. Changes significant at a 95/99\% level are marked with single/double cross-hatches respectively.}
+\caption{Difference in mean rainfall between 1980-2007 and 1951-1979. The South Flood-North Drought pattern is visible between 110-125$^{\circ}$ E and 22-42$^{\circ}$ N over mainland China. Changes significant at a 95/99\% level are marked with single/double cross-hatches respectively.}
 \label{fig:changes_2d_nojet}
 \end{figure}
 

@@ -7,7 +7,7 @@
 	
 \subsection{Jet Count Density} 
 
-	\citet{Schiemann2009} constructed a data set of jet `counts' in the Tibetan Plateau region (46$^{\circ}$ E-130$^{\circ}$ E, 17$^{\circ}$ N-58$^{\circ}$ N) from ERA-40 reanalysis for 1958-2001, where a count is defined as any local maximum in zonal wind with westerly magnitude greater than $30$ m s$^{-1}$; further details can be found in section 2 of \citet{Schiemann2009}. We show daily mean jet latitude averaged across $90-130^\circ$E in Figure ~\ref{fig:jet_seasonal}a and monthly anomalies in Figure ~\ref{fig:jet_seasonal}b. Results are not sensitive to the choice of longitude range. Figure ~\ref{fig:climo} presents contours of jet frequency estimated by a kernel density method, which estimates a probability distribution from a set of discrete data observations (Supplementary Text S4).
+	\citet{Schiemann2009} constructed a data set of jet `counts' in the Tibetan Plateau region (46$^{\circ}$ E-130$^{\circ}$ E, 17$^{\circ}$ N-58$^{\circ}$ N) from ERA-40 reanalysis for 1958-2001, where a count is defined as any local maximum in zonal wind with westerly magnitude greater than $30$ m s$^{-1}$; further details can be found in section 2 of \citet{Schiemann2009}. We show daily mean jet latitude averaged across $90-130^\circ$E in Figure ~\ref{fig:jet_seasonal}a and monthly anomalies in Figure ~\ref{fig:jet_seasonal}b. Results are not sensitive to the choice of longitude range. Figure ~\ref{fig:climo} presents contours of jet frequency estimated by a kernel density method, which estimates a probability distribution from a set of discrete data observations.
 
 \subsection{Dynamics}
 
@@ -57,4 +57,12 @@
 \includegraphics[width=42pc]{Figures/ch4/jet}
 \caption{a) 7-day running mean latitude of the westerly jet in the region 90-130$^\circ$E for the years 1958-1979 (blue, solid) and 1980-2001 (red, dashed). Bootstrapped 95\% confidence intervals are shaded. Time periods: 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; b) Plot of monthly anomalies in rainband frequency versus monthly anomalies in jet latitude during days 121-150 (May) for 1958-1979 (blue X) versus 1980-2001 (red circle); c) Same as b), but showing 30-day anomalies of rainband latitudes during the Post-Meiyu (201-230 and 231-260, each set of 30 days treated as a separate point). Histograms of anomalies are also shown on the side of each figure.}
 \label{fig:jet_seasonal}
+\end{figure}
+
+%% FIGURE 4.4 - Temporal autocorrelation of the jet used to demonstrate the choice of block size for averaging.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=42pc]{Figures/ch4/jet_autocorr}
+\caption{The accumulation of the jet into blocks eliminates the autocorrelation from the daily mean latitude signal. During the Pre-Meiyu, mean daily jet latitude is further smoothed over 4 days (panels a and b); During the Post-Meiyu, we average over 7 days (panels c and d).}
+\label{fig:jet_autocorr}
 \end{figure}

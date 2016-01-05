@@ -90,9 +90,35 @@ A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is com
 
 	The use of conditional quality scores $Q_1$ and $Q_2$ adds 466 double rainband fits (6.2\% of all successful fits) that would otherwise have been missed due to $Q<.6$. 33.2\% of double rainband days are Type I ($Q>.6$) and 66.8\% Type II ($Q<.6$). Double rainbands are more common during certain months, particularly July-September. Tables~\ref{tab:t31}-~\ref{tab:t33} contain detailed results of the application of RDA to years 1951-2007 in APHRODITE. The entire catalog is publicly available.
 
-\section{Statistical methods}	
+\section{Methods}	
 
-\subsection{Temporal autocorrelation}
+\subsection{Alternative Metrics of China Rainfall}
+
+It is reasonable to suggest that some simpler metric ought to exist that reproduces the results of the Rainband Detection Algorithm (RDA). In this section, we test a suite of daily metrics and use the same bootstrapping algorithms used to calculate the statistical significance of changes in observed yearly rainfall. These metrics are as follows: 
+
+\begin{itemize}
+
+	\item $M_1$ - Latitude of maximum precipitation 
+	
+	\item $M_2$ - Centroid latitude of daily precipitation 
+	
+	\item $M_3$ - Intensity of maximum precipitation over China (100-123$^{\circ}$E and 20-40$^{\circ}$N); 
+	
+	\item $M_4$ - Mean intensity of China rainfall; 
+	
+	\item $M_5$ - Mean intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N); 
+	
+	\item $M_6$ - Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N); 
+	
+	\item $M_7$ - Frequency of North China rainfall
+	
+	\item $M_8$ - Frequency of South China rainfall.
+	
+\end{itemize}
+
+ The definitions of the North China and South China regions are taken from \citet{Yu2010}. The climatology of $M_1-M_8$ is shown in Figure~\ref{fig:type_changes}, and statistical properties shown in Tables~\ref{tab:t39}-~\ref{tab:t311}. The significance of changes in each metric between 1951-1979 and 1980-2007 is listed in Table~\ref{tab:t312}.
+
+\subsection{Temporal Autocorrelation}
 
 	Fronts and rainbands tend to persist for several days. Therefore, rainfall amounts and front attributes on successive days are not fully independent observations, which reduces the effective number of degrees of freedom of these time series. This temporal autocorrelation must be accounted for in calculations of statistical significance such as estimating the $p$-value of a change in rainband frequency between two time periods. In this particular case, we use the analytic formula for a Bernoulli process (applicable for any time series where observations are binary) with effective number of degrees of freedom $n=\frac{N}{\tau}$, with number of days N and decorrelation time $\tau$ given by
 
@@ -107,31 +133,15 @@ A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is com
 
 	The distributions of rainband latitude and intensity during a given time period obey unknown distributions. Therefore, we require non-parametric tests to estimate the standard deviation of their mean and the significance of changes in mean. We employ bootstrapping with and without replacement (the latter also known as a permutation test), well-established techniques that estimate quantities of interest by constructing synthetic distributions with random sampling of original data \citep{Good2005}. We use bootstrapping with replacement to calculate the standard deviation of means (Tables~\ref{tab:t34},~\ref{tab:t36} and~\ref{tab:t38}). We focus on changes in front attributes between 1951-1979 and 1980-2007 (Tables~\ref{tab:t35} and~\ref{tab:t36}), and also repeat our methodology for 1979-1993 versus 1994-2007. $p$-values listed are from permutation testing with 1000 iterations; the results of bootstrapping with and without replacement are very similar.
 	
-	The bootstrap must be adapted for time series featuring temporal autocorrelation. In such time series, a single anomalous weather event will persist over several days, and a bootstrap method will tend to exaggerate the significance of differences between the two original distributions. To avoid this scenario, we use a \textit{moving blocks bootstrap} test, described for instance in \citet{Singh2014}. This technique is identical to bootstrapping with replacement except that samples are drawn in continuous blocks of length $n$ that preserve the time structure of the original data set. Block length is chosen based on decorrelation time scale $\tau$. The autocorrelation of daily rainfall in China is $\tau =~3$ days, and therefore the significance estimates in Figure~\ref{fig:hov}a use a moving blocks bootstrap with block length of 3 days and 1000 iterations. The calculation of significance of change in alternative China rainfall statistics $M_1-M_6$ (Table~\ref{tab:t312}) uses the $\tau$ of each statistic in each season (Table~\ref{tab:t311}) rounded to the nearest integer as block length. In general, a choice of block lengths between 2 and 5 days leads to similar results. Our MATLAB code for the permutation test and the moving blocks bootstrap is included in xxx.
+	The bootstrap must be adapted for time series featuring temporal autocorrelation. In such time series, a single anomalous weather event will persist over several days, and a bootstrap method will tend to exaggerate the significance of differences between the two original distributions. To avoid this scenario, we use a \textit{moving blocks bootstrap} test, described for instance in \citet{Singh2014}. This technique is identical to bootstrapping with replacement except that samples are drawn in continuous blocks of length $n$ that preserve the time structure of the original data set. Block length is chosen based on decorrelation time scale $\tau$. The autocorrelation of daily rainfall in China is $\tau =~3$ days, and therefore the significance estimates in Figure~\ref{fig:hov}a use a moving blocks bootstrap with block length of 3 days and 1000 iterations. The calculation of significance of change in alternative China rainfall statistics $M_1-M_6$ (Table~\ref{tab:t312}) uses the $\tau$ of each statistic in each season (Table~\ref{tab:t311}) rounded to the nearest integer as block length. In general, a choice of block lengths between 2 and 5 days leads to similar results. Our MATLAB code for the permutation test and the moving blocks bootstrap is included in the appendix.
 	
 	The moving blocks bootstrap cannot be used for time series with gaps. Therefore, we use a permutation test to estimate the significance of changes in mean latitude and intensity of rainbands between time periods (Tables~\ref{tab:t36} and~\ref{tab:t38}). These latter results are verified with Anderson-Darling and Kolmogorov-Smirnov tests, two methods which estimate the significance of shifts in distribution between two sample. These tests are described below.
 
-	Below we attach the relevant code used to perform bootstrapping of Meiyu statistics without replacement (permutation test) and the moving blocks bootstrap for calculating significance of differences. Other code is attached in an appendix.
+\subsection{Significance of Changes in Distribution}
 
-%\begin{lstinputlisting}[language=MATLAB]{mybs.m}
+\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations.}
 
-%\begin{lstinputlisting}[language=MATLAB]{mybs_diff.m}
-
-\clearpage
-\subsubsection{Permutation test of significance of changes}
-\lstinputlisting[language=MATLAB]{myperm.m}
-
-\clearpage
-\subsubsection{Moving blocks bootstrap for significance of changes}
-\lstinputlisting[language=MATLAB]{mybs_diff_blocks.m}
-
-\clearpage
-
-\subsection{Significance of Changes in Distributions of latitude and intensity}
-
-We can also test for the statistical significance of the change in the entire distribution, using statistical tests such as the Anderson-Darling test or Kolmogorov-Smirnov test. Each of these tests define test statistics that indicate a confidence estimate that two samples are drawn from the same statistical distribution. The Anderson-Darling test places more weight on outliers relative to the Kolmogorov-Smirnov test, but both are accepted metrics of whether two samples are drawn from the same underlying distribution or not. 
-
-The Kolmogorov-Smirnov (K-S) test depends first on the definition of the empirical distribution function, equivalent to a statement that each of the observations $X_i$ are weighted evenly in the construction of a cumulative distribution function (CDF):
+In addition to gauging the significance of changes in mean, we can also test the probability that two samples were drawn from the same distribution. The Kolmogorov-Smirnov and Anderson-Darling tests each define a test statistic based on the largest difference between the observed probability distribution of two samples. Similar to a $t$=test, the value of this test statistic can be translated into a $p$-value. We first define the \textit{empirical distribution function} $F_1(x)$ and $F_2(x)$ of each sample as follows:
 
 \begin{align}
 	F_n(x) =& \frac{1}{n}\sum_{i=1}^n I_{[-\infty,x]} (X_i) \\
@@ -142,13 +152,13 @@ The Kolmogorov-Smirnov (K-S) test depends first on the definition of the empiric
     	\end{cases}
 \end{align}
 
-Given this definition of $F_n(x)$ we compare the cumulative distribution functions of samples $F_1(x)$ and $F_2(x)$ and find their maximal distance $D$:
+The K-S test statistic $D$ is then defined as the maximal distance between the two empirical distribution functions:
 
 \begin{equation}
-	D=\max_x |F_{1}(x)-F_{2}(x)|
+	D=\max_{all x} |F_{1}(x)-F_{2}(x)|
 \end{equation}
 
-We can reject the null hypothesis that both samples are drawn from the same distribution if D exceeds a critical value given in the literature. In this case, we rely on its implementation in the R programming language. The Anderson-Darling (A-D) test statistic is similar to its K-S counterpart, but formulated to be more sensitive to the tails of the distribution:
+$D$ can then be inverted to derive a $p$-value. The Anderson-Darling (A-D) test statistic $A$ resembles $D$, but is formulated to be more sensitive to the tails of the distribution:
 
 \begin{equation}
 	A^2 = -n-S \,,
@@ -159,7 +169,7 @@ We can reject the null hypothesis that both samples are drawn from the same dist
 	S=\sum_{i=1}^n \frac{2i-1}{n}\left[\ln(F(Y_i)) + \ln\left(1-F(Y_{n+1-i})\right)\right].
 \end{equation}
 
-The Anderson-Darling test is similarly carried out in R, and a $p$-value returned based on the comparison of the test statistic $A$ to known critical values. The results of the K-S and A-D tests for changes in the distribution of rainband latitude and intensity are shown in Tables~\ref{tab:t313} and~\ref{tab:t314}
+$A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be further adapted for our data because values are repeated within samples. In this case, $D$ and $A$ cannot be defined. Instead, we use bootstrap versions of these tests. Bootstrap K-S and A-D tests are performed using the programming language R with 10,000 iterations. The significance of changes in the distribution of rainband latitude and intensity are presented in Tables~\ref{tab:t313} and~\ref{tab:t314}. Both tests produce fairly similar results.
 
 \section{Results}
 
@@ -215,7 +225,24 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 	APHRODITE precipitation data is publicly available at \url{http://www.chikyu.ac.jp/precip/index.html}. Ferret, a NOAA product, was used for some data analysis and preliminary plot generation and is freely available at \url{http://ferret.pmel.noaa.gov/Ferret/}. The rainband detection algorithm and the majority of data analysis code were written in MATLAB. A full database of rainband statistics from 1 January 1951 to 31 December 2007 and associated MATLAB and Ferret codes used to produce results are available at the author's website: \url{http://www.atmos.berkeley.edu/~jessed/data.html}, and key figures are reproduced at \url{http://www.atmos.berkeley.edu/~jessed/myfigures.html}. This work was supported by NSF grants EAR-0909195 and EAR-1211925, which allowed the presentation of preliminary results in conference settings and the feedback of our peers. We also acknowledge NSFC (National Natural Science Foundation of China) grant \#40921120406 for enabling our collaboration with Professor Yanjun Cai of IEECAS in Xi'an, which led to the present work. We thank Jinqiang Chen and an anonymous reviewer for valuable suggestions on a version of this chapter intended for publication.
 	
-	
+\section{Code}
+
+	Below we attach the relevant code used to perform bootstrapping of Meiyu statistics without replacement (permutation test) and the moving blocks bootstrap for calculating significance of differences.
+
+%\begin{lstinputlisting}[language=MATLAB]{mybs.m}
+
+%\begin{lstinputlisting}[language=MATLAB]{mybs_diff.m}
+
+\clearpage
+\subsubsection{Permutation test of significance of changes}
+\lstinputlisting[language=MATLAB]{myperm.m}
+
+\clearpage
+\subsubsection{Moving blocks bootstrap for significance of changes}
+\lstinputlisting[language=MATLAB]{mybs_diff_blocks.m}
+
+\clearpage	
+
 \newpage	
 \clearpage	
 \section{Tables and Figures}
@@ -609,7 +636,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 \begin{figure}[htb]
 \centering
 \includegraphics[width=36pc]{Figures/ch3/met_climo}
-\caption{Yearly climatology of alternative metrics of China rainfall; a) Latitude of maximum precipitation and of precipitation centroid (metrics $M_1-M_2$) b) Intensity of maximum precipitation over China ($M_3$) c) Mean intensity of China rainfall, North China rainfall and South China rainfall ($M_4-M_6$) d) Frequency of North China rainfall and South China rainfall ($M_7-M_8$). China region is defined as 105-123$^{\circ}$E and 20-40$^{\circ}$N, North China as 107.5-125$^{\circ}$E and 37-42$^{\circ}$N and South China as 107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N.}
+\caption{Yearly climatology of alternative metrics of China rainfall. a) Latitude of maximum precipitation and of precipitation centroid (metrics $M_1-M_2$); b) Intensity of maximum precipitation over China ($M_3$); c) Mean intensity of China rainfall, North China rainfall and South China rainfall ($M_4-M_6$); d) Frequency of North China rainfall and South China rainfall ($M_7-M_8$). China region is defined as 105-123$^{\circ}$E and 20-40$^{\circ}$N, North China as 107.5-125$^{\circ}$E and 37-42$^{\circ}$N and South China as 107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N.}
 \label{fig:type_changes}
 \end{figure}
 

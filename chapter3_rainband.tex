@@ -93,24 +93,23 @@ A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is com
 \section{Statistical methods}	
 
 \subsection{Temporal autocorrelation}
-	
-	Rainfall and front statistics are temporally autocorrelated on a daily timescale, reducing the effective number of degrees of freedom. Magnitude of autocorrelation also varies with latitude and season. In calculating the significance of rainband frequency changes, we use estimated degrees of freedom $n=\frac{N}{\tau}$, with N total number of days and decorrelation time $\tau$ of the mean given by
+
+	Fronts and rainbands tend to persist for several days. Therefore, rainfall amounts and front attributes on successive days are not fully independent observations, which reduces the effective number of degrees of freedom of these time series. This temporal autocorrelation must be accounted for in calculations of statistical significance such as estimating the $p$-value of a change in rainband frequency between two time periods. In this particular case, we use the analytic formula for a Bernoulli process (applicable for any time series where observations are binary) with effective number of degrees of freedom $n=\frac{N}{\tau}$, with number of days N and decorrelation time $\tau$ given by
 
 \begin{equation*}
 \tau=1+2\sum_{k=1}^m \rho(k)
 \end{equation*}
 
-where $\rho(k)$ is the autocorrelation function of rainband presence with lag $k$ \citep{VonStorch1999}. We calculate $\tau$ using m=10 days. The yearly mean decorrelation timescale of rainband frequency is found to be $\tau = 1.81$ after removing the seasonal cycle. This value is used to calculate significance of changes in Figure 3b. The standard deviation and $p$-values of rainband frequency changes in Tables~{tab:t35} and~\ref{tab:t37} use seasonal values of $\tau$. Table~{tab:t311} shows the temporal autocorrelation of other alternative tested metrics of China rainfall. $ 
-tau$ is further used to inform the selection of block length in the moving blocks bootstrap, as described below.
+	where $\rho(k)$ is the autocorrelation function of rainband existence with lag $k$ \citep{VonStorch1999}. We calculate $\tau$ using a maximum lag of $m=10$ days. The yearly mean decorrelation timescale of rainband frequency is found to be $\tau = 1.81$ after removing the seasonal cycle. This value is used to calculate significance of changes in Figure 3b. The standard deviation and $p$-values of rainband frequency changes in Tables~\ref{tab:t35} and~\ref{tab:t37} use seasonal values of $\tau$ calculated in \ref{tab:t34}. Similarly, Table~\ref{tab:t311} shows the $\tau$ of alternative metrics of China rainfall, which is then used to calculate the significance of decadal changes in Table~\ref{tab:t312}. $\tau$ is also used to select block length for moving blocks bootstrap tests, as described below.
 
 %% BOOTSTRAPPING
 \subsection{Significance of Changes: Bootstrapping Algorithms}
 
-	The standard deviation and significance of changes in rainband frequency are calculated analytically. However, the distribution of rainband latitude and intensity during a given season does not necessarily follow a normal distribution. Therefore, in the estimation of statistical significance we are required to employ non-parametric tests. In this chapter, estimations of significance were obtained using bootstrapping with and without replacement (the latter also known as a permutation method), well-established techniques that allow the estimation of relevant quantities by constructing synthetic distributions \citep{Good2005}. We use bootstrapping with replacement to calculate the standard deviation of their means (Tables~\ref{tab:t34}-~\ref{tab:t38} respectively). Both bootstrapping with replacement and a permutation test produce similar results; $p$-values shown are from permutation testing. We focus on changes in front attributes between 1951-1979 and 1980-2007 (Tables~\ref{tab:t35} and~\ref{tab:t36}), and also repeat our methodology for 1979-1993 versus 1994-2007, since other authors have found a significant shift between these sets of years.
+	The distributions of rainband latitude and intensity during a given time period obey unknown distributions. Therefore, we require non-parametric tests to estimate the standard deviation of their mean and the significance of changes in mean. We employ bootstrapping with and without replacement (the latter also known as a permutation test), well-established techniques that estimate quantities of interest by constructing synthetic distributions with random sampling of original data \citep{Good2005}. We use bootstrapping with replacement to calculate the standard deviation of means (Tables~\ref{tab:t34},~\ref{tab:t36} and~\ref{tab:t38}). We focus on changes in front attributes between 1951-1979 and 1980-2007 (Tables~\ref{tab:t35} and~\ref{tab:t36}), and also repeat our methodology for 1979-1993 versus 1994-2007. $p$-values listed are from permutation testing with 1000 iterations; the results of bootstrapping with and without replacement are very similar.
 	
-	Weather systems and rainbands may persist over multiple days. It is possible that we can have multiple observations of what is in reality a single anomalous event, and the permutation test above may therefore exaggerate significance. In such circumstances, we use a \textit{moving blocks bootstrap} test, described for instance in \citep{Singh2014}, wherein data are randomly drawn in continuous blocks of length $n$ that preserve the time structure of the original data set. We use the autocorrelation time scale $\tau$ of each statistic to select block length. For instance, the autocorrelation of daily rainfall in China is $\tau =2-4 \mathrm{\ days}$ and generally less than 3 days. Therefore, the calculation of significance of rainfall changes in Figure~\ref{fig:hov}a uses a moving blocks bootstrap appropriate for autocorrelated data with 1000 iterations and block length of 3 days \citep{Singh2014}. The calculation of significance of change in alternative Meiyu statistics (Table~\ref{tab:t312}) uses the $\tau$ of each statistic in each season (Table~\ref{tab:t311}). In general, the choice of alternative block lengths does not strongly alter estimations of significance.
-		
-	Not all algorithm outputs of interest are continuous in time. Specifically, if no front is observed on a day, then we cannot report a latitude or intensity. There is no existing convention to our knowledge for handling the case of missing observations in a moving blocks bootstrap, and we instead rely on a regular permutation test to gauge the significance of changes in latitude and intensity of rainbands between time periods (Tables~{tab:t36} and~\ref{tab:t38}). Instead, we rely on alternative methods such as the Anderson-Darling and Kolmogorov-Smirnov tests that test whether the entire distribution of latitude or intensity has shifted between time periods. These two methods are described below.
+	The bootstrap must be adapted for time series featuring temporal autocorrelation. In such time series, a single anomalous weather event will persist over several days, and a bootstrap method will tend to exaggerate the significance of differences between the two original distributions. To avoid this scenario, we use a \textit{moving blocks bootstrap} test, described for instance in \citet{Singh2014}. This technique is identical to bootstrapping with replacement except that samples are drawn in continuous blocks of length $n$ that preserve the time structure of the original data set. Block length is chosen based on decorrelation time scale $\tau$. The autocorrelation of daily rainfall in China is $\tau =~3$ days, and therefore the significance estimates in Figure~\ref{fig:hov}a use a moving blocks bootstrap with block length of 3 days and 1000 iterations. The calculation of significance of change in alternative China rainfall statistics $M_1-M_6$ (Table~\ref{tab:t312}) uses the $\tau$ of each statistic in each season (Table~\ref{tab:t311}) rounded to the nearest integer as block length. In general, a choice of block lengths between 2 and 5 days leads to similar results. Our MATLAB code for the permutation test and the moving blocks bootstrap is included in xxx.
+	
+	The moving blocks bootstrap cannot be used for time series with gaps. Therefore, we use a permutation test to estimate the significance of changes in mean latitude and intensity of rainbands between time periods (Tables~\ref{tab:t36} and~\ref{tab:t38}). These latter results are verified with Anderson-Darling and Kolmogorov-Smirnov tests, two methods which estimate the significance of shifts in distribution between two sample. These tests are described below.
 
 	Below we attach the relevant code used to perform bootstrapping of Meiyu statistics without replacement (permutation test) and the moving blocks bootstrap for calculating significance of differences. Other code is attached in an appendix.
 
@@ -276,6 +275,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 \end{table}
 
 %%%% TABLE 3.4 - MEIYU STATISTICS %%%%
+\begin{landscape} %rotates the page of the PDF showing this table (too big otherwise)
 \begin{table}[h]
 \centering
 \caption{Total number of rainbands, frequency of primary and secondary rainbands and latitude and intensity (mm day$^{-1}$) of rainbands during the Spring Rains, Pre-Meiyu, Meiyu season, Post-Meiyu, Fall Rains and for the full year. We also list the decorrelation timescale $\tau_1$  and $\tau_2$ of primary and secondary fronts. Statistics are compiled using both primary and secondary rainbands, and are very close to results using primary rainbands alone, except during the Post-Meiyu period when secondary rainbands are common. Standard deviations for latitude and intensity are obtained by a permutation method with 10,000 iterations.}
@@ -295,6 +295,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 \end{tabular}
 \label{tab:t34}
 \end{table}
+\end{landscape}
 
 
 %% TABLE 3.5 - change in rainband frequency between 1951-1979 and 1980-2007
@@ -302,7 +303,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 \centering
 
-\caption{Change in frequency of primary and secondary rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and p-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in frequency of primary and secondary rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and $p$-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Primary rainband \%} & \multicolumn{3}{c}{Secondary rainband \%} \\
@@ -326,7 +327,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 \centering
 
-\caption{Change in latitude and intensity of rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and p-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in latitude and intensity of rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and $p$-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Rainband latitude ($^\circ$)} & \multicolumn{3}{c}{Intensity (mm day$^{-1})$} \\
@@ -350,7 +351,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 \centering
 
-\caption{Change in frequency of primary and secondary rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and p-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in frequency of primary and secondary rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and $p$-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Primary rainband \%} & \multicolumn{3}{c}{Secondary rainband \%} \\
@@ -374,7 +375,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 \centering
 
-\caption{Change in latitude and intensity of rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and p-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in latitude and intensity of rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and $p$-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Rainband latitude ($^\circ$)} & \multicolumn{3}{c}{Intensity (mm day$^{-1})$} \\
@@ -395,8 +396,9 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 
 %% TABLE 3.9 - ALTERNATIVE METRIC STATISTICS, 1951-1979
+\begin{landscape}
 \begin{table}[p]
-
+\footnotesize
 \centering
 
 \caption{Mean and standard deviation of mean of metrics $M_1$ to $M_8$ for 1951-1979 as previously defined. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold as subsequently calculated in Table S12.}
@@ -418,7 +420,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 
 %% TABLE 3.10 - ALTERNATIVE METRIC STATISTICS, 1980-2007 %%%%
 \begin{table}[p]
-
+\footnotesize
 \centering
 
 \caption{Mean and standard deviation of mean of metrics $M_1$ to $M_8$ for 1980-2007 as previously defined. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold as subsequently calculated in Table S12.}
@@ -435,7 +437,7 @@ The Anderson-Darling test is similarly carried out in R, and a $p$-value returne
 \end{tabular}
 \label{tab:t310}
 \end{table}
-
+\end{landscape}
 
 %% TABLE 3.11 - AUTOCORRELATION TIME SCALE OF ALTERNATIVE METRICS
 \begin{table}[p]

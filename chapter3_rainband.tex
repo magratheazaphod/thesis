@@ -139,7 +139,7 @@ Since the RDA method is complex, we must justify its use by proving that it supp
 
 \subsection{Significance of Changes in Distribution}
 
-\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations.}
+\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations. 3) Perhaps we should define better what a rainband is?}
 
 In addition to gauging the significance of changes in mean, we can also test the probability that two samples were drawn from the same distribution. The Kolmogorov-Smirnov and Anderson-Darling tests each define a test statistic based on the largest difference between the observed probability distribution of two samples. Similar to a $t$=test, the value of this test statistic can be translated into a $p$-value. We first define the \textit{empirical distribution function} $F_1(x)$ and $F_2(x)$ of each sample as follows:
 
@@ -175,18 +175,36 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \subsection{Rainband Climatology}
 
-	The yearly progression of precipitation over eastern China is shown in Figure~\ref{fig:hov}a, longitudinally averaged over $100-123^\circ$E with a 5-day running mean, similar to Figure 7 in \citet{Ding2005}. China receives a substantial fraction of its yearly precipitation outside of summer, unlike other monsoonal regions \citep{Wang2002}. Figure~\ref{fig:hov}b shows a Hovm\"oller diagram of rainband frequency over all 57 years, including both primary and secondary rainbands. Some periods of heavy rainfall, in particular the August peak over southern China (over 10 mm day$^{-1}$ around 20$^{\circ}$ N), do not correspond to a surge in rainbands. Figure~\ref{fig:hov}c shows the probability of observing a rainband and mean rainband intensity, and Figure~\ref{fig:hov}d shows mean rainband tilt and length, as well as the conditional probability of observing a secondary rainband given the presence of a primary rainband. Frontal rainbands over China can appear in any month, with their probability of occurrence and intensity maximizing in late June (80\% probability of occurrence, mean intensity of 31 mm day$^{-1}$) and minimizing in January (10\% probability occurrence, mean intensity of 12 mm day$^{-1}$).
+	We compile our daily rainband catalog into a 57-year daily climatology (1951-2007). The yearly progression of precipitation over eastern China is shown in Figure~\ref{fig:hov}a, longitudinally averaged over $100-123^\circ$E with a 5-day running mean, similar to Figure 7 in \citet{Ding2005}. China receives a substantial fraction of its yearly precipitation outside of summer, unlike other monsoonal regions which tend to be very dry in winter \citep{Wang2002}. Figure~\ref{fig:hov}b shows a Hovm\"oller diagram of the probability of rainband occurrence at each latitude, including both primary and secondary rainbands. Some periods of heavy rainfall, in particular the August peak over southern China (over 10 mm day$^{-1}$ around 20$^{\circ}$N), do not correspond to a surge in rainband frequency. Figure~\ref{fig:hov}c shows the probability of rainband occurrence and mean intensity on each day. Figure~\ref{fig:hov}d shows mean rainband tilt and length, as well as the conditional probability of observing a secondary rainband given the presence of a primary rainband. Frontal rainbands over China can appear in any month, with their probability of occurrence and intensity maximizing in late June (80\% probability of occurrence, mean intensity of 31 mm day$^{-1}$) and minimizing in January (10\% probability occurrence, mean intensity of 12 mm day$^{-1}$).
 	
-	Coordinated, abrupt changes occur in rainfall and frontal climatology. We define 5 periods of notable behavior as demarcated in Figure~\ref{fig:hov}: 1) The ``Spring Rains'' (days 60-120, March 1-April 30), as previously studied in \citet{Tian1998}; 2) The ``Pre-Meiyu'' (121-160, May 1-June 9), during which rainfall and front intensity increase; 3) Meiyu season (161-200, June 10-July 19) when a remarkable 7-degree northward shift in mean rainband latitude occurs over the course of several weeks, and rainband frequency and intensity peaks; 4) The Post-Meiyu (201-273, July 20-September 30), during which double rainbands are common; and 5) the ``Fall Rains'' (274-320, October 1-November 16), when rainband latitude returns south. The Pre-Meiyu, Meiyu and Post-Meiyu are equivalent to the three stages of Meiyu rainfall described in \citet{Ding2005}. Our results can also  be compared with the event catalog of \citet{Xu2009}, which finds a similar date for the northward transition of the Meiyu front. The total number of rainband counts as well as the mean and standard deviation of rainband frequency, latitude and intensity during each time period are presented in Table~\ref{tab:t34}. A yearly asymmetry can also be seen between more frequent and intense rainbands during the jet's northward passage (Pre-Meiyu and Meiyu) versus weaker rainfall during its southward return (Fall Rains), which merits further study.
+	Abrupt climatological shifts occur simultaneously in both rainfall and rainband climatology. We define 5 periods of distinct behavior as demarcated in Figure~\ref{fig:hov}: 
+
+\begin{enumerate}
+
+\item The ``Spring Rains'' (days 60-120, March 1-April 30), previously studied in \citet{Tian1998}, marked by frequent but relatively weak rainbands (47\% occurrence, 20 mm day$^{-1}$ mean);
+
+\item ``Pre-Meiyu'' season (121-160, May 1-June 9), during which rainfall and front intensity steadily increase (56\% occurrence, 25.5 mm day$^{-1}$ mean);
+
+\item Meiyu season (161-200, June 10-July 19) when a remarkable 7-degree northward shift in mean rainband latitude occurs over the course of several weeks, and rainband frequency and intensity peaks (66\% occurrence, 28.3 mm day$^{-1}$ mean; 
+
+\item Post-Meiyu season (201-273, July 20-September 30), during which rainbands are less common than the spring rains (42\% occurrence) but double rainbands are much more common (28\% chance of observing a secondary rainband if a primary rainband is occurred); 
+
+\item the ``Fall Rains'' (274-320, October 1-November 16), when mean rainband latitude shifts back southward from its northern maximum of 30$^\circ$N and rainband frequency decreases to just 27\%. 
+
+\end{enumerate}
+
+	The Pre-Meiyu, Meiyu and Post-Meiyu are equivalent to the three stages of Meiyu rainfall described in \citet{Ding2005}. The transition from pre-Meiyu to Meiyu and from Meiyu to Post-Meiyu both entail striking, sudden changes in rainband behavior. The onset of the Meiyu is marked by a climatological jump in rainband frequency and intensity around day 160 (June 9) that persists for 20 days when rainbands are concentrated between 26$^\circ$ and 30$^\circ$N. Yet by day 200 (July 19), this same region is less likely than any other latitude to feature a rainband, roughly an 80\% local decline in frequency in the span of 3 weeks (Figure~\ref{fig:hov}b). Rainbands are generally more probable and stronger during spring than in fall, and the intensification of rainband activity during the Meiyu and abrupt northward jump have no counterpart in the Fall Rains. The causes of this seasonal asymmetry merit further study.
+
+ 	Our results can be compared with the frontal event catalog of \citet{Xu2009}, which finds a similar date for the northward transition of the Meiyu front. The total number of rainband counts as well as the mean and standard deviation of rainband frequency, latitude and intensity during each time period are presented in Table~\ref{tab:t34}.
 			
-\subsection{Changes between 1980-2007 Versus 1951-1979}
+\subsection{Rainband Changes: 1980-2007 versus 1951-1979}
 
 %% NEW PARAGRAPH - SIMPLY DESCRIBES THE YEARLY CUMULATIVE SOUTH FLOOD-NORTH DROUGHT
-	The yearly mean change in rainfall rate between 100-142$^{\circ}$ E and 20-48$^{\circ}$ N is shown in Figure~\ref{fig:f31}. The ``South Flood-North Drought'' refers in particular to a meridional dipole between zonal bands of rainfall change over eastern China (110-125$^{\circ}$ E and 22-42$^{\circ}$ N), where most of China's population resides. Pronounced local shifts are also visible in Taiwan, South Korea and parts of Japan. This paper focuses on eastern China. Annual changes in northern China between 35-40$^{\circ}$ N are significant at a 95 \% confidence level, whereas changes in central and southern China are not. However, there are substantial changes in central and southern China rainfall during particular Meiyu stages, as shown subsequently.
+	The yearly mean change in rainfall rate between 100-142$^{\circ}$ E and 20-48$^{\circ}$ N is shown in Figure~\ref{fig:f31}. The ``South Flood-North Drought'' refers in particular to a meridional dipole between zonal bands of rainfall change over eastern China (110-125$^{\circ}$ E and 22-42$^{\circ}$ N), where most of China's population resides. Pronounced local shifts are also visible in Taiwan, South Korea and parts of Japan. This work focuses on eastern China. Annual changes in northern China between 35-40$^{\circ}$ N are significant at a 95 \% confidence level, whereas changes in central and southern China are not. However, there are substantial changes in central and southern China rainfall during particular Meiyu stages, as shown in Figure~\ref{fig:changes}a and discussed below.
 		
-	We calculate changes in rainfall and rainband frequency during 1980-2007 relative to 1951-1979, along with their statistical significance (Figure~\ref{fig:changes}). In addition, we evaluate the significance of changes in rainband attributes between these sets of years during each of the five rainfall stages (Tables~\ref{tab:t35} and~\ref{tab:t36}). Finally, Figures~\ref{fig:changes}b and~\ref{fig:changes}c show spatial changes in rainfall and jet count density during the Pre-Meiyu and Post-Meiyu, when changes are particularly large. During the Pre-Meiyu (days 121-160), the probability of observing a primary rainband has declined from $59.0\% \pm 2.0\%$ to $53.0\% \pm 2.1\%$ ($p=0.020$; Table~\ref{tab:t35}). A corresponding decrease in Pre-Meiyu rainfall has occurred in central China (Figure~\ref{fig:changes}b and 30$^{\circ}$ N in Figure~\ref{fig:changes}a). The change in Pre-Meiyu rainfall in the late \nth{20} century has previously been reported by \citet{Xin2006} and \citet{Wang2009}.
+	We test whether the rainband catalog reflects the South Flood-North Drought by calculating changes in rainband frequency during 1980-2007 relative to 1951-1979 (shown as a Hovm\"oller diagram in Figure~\ref{fig:changes}b). We also calculate the significance of changes in rainband attributes during each of the five Meiyu stages (Tables~\ref{tab:t35} and~\ref{tab:t36}). During the Pre-Meiyu (days 121-160), the probability of observing a primary rainband has declined from $59.0\% \pm 2.0\%$ to $53.0\% \pm 2.1\%$ ($p=0.020$; Table~\ref{tab:t35}. Figure~\ref{fig:changes} shows matching decreases in front occurrence and rainfall over central China during this time period. The Pre-Meiyu decrease in rainfall was previously reported by \citet{Xin2006} and \citet{Wang2009}. We propose that diminished rainband occurrence has caused this decrease.
 		
-	In addition, a southward shift in mean rainband latitude has occurred during the Post-Meiyu (days 201-273, or July 20-Sep 30). Considering both primary and secondary rainbands north of 27$^{\circ}$ N, which are associated with the jet (Figure~\ref{fig:hov}d), mean latitude during 1951-1979 was $33.6^\circ \textrm{N} \pm .3^\circ$ versus $32.9^\circ \textrm{N} \pm .3^\circ$ during 1980-2007 ($p=.0003$; Table~\ref{tab:t36}). This shift remains significant if we do not restrict by front latitude ($p=.0048$). A Post-Meiyu rainfall increase in central China and decrease in northern China has also occurred, producing a South Flood-North Drought pattern (Figure~\ref{fig:changes}c). As a result, yearly rainfall has increased in central China even though Pre-Meiyu rainfall changes in that region are negative (Figure~\ref{fig:changes}a). Unlike \citet{Yu2010}, our catalog does not exhibit a \nth{20}-century decrease in the intensity of Yangtze River region frontal rainbands during July-August. A significant southward shift in rainband latitude is also found for the whole year ($p=.0032$, Table~\ref{tab:t36}), but this signal is dominated by the Post-Meiyu shift.
+	In addition, a southward shift in mean rainband latitude has occurred during the Post-Meiyu (days 201-273, or July 20-Sep 30). We focus on rainbands north of 27$^{\circ}$N; rainbands occurring south of this latitude are produced by the westward-propagating remnants of tropical storms, and therefore dynamically unrelated to other storminess during Meiyu season \citep{Day2015}. Considering both primary and secondary rainbands north of 27$^{\circ}$ N,   mean latitude during 1951-1979 was $33.6^\circ \textrm{N} \pm .3^\circ$ versus $32.9^\circ \textrm{N} \pm .3^\circ$ during 1980-2007 ($p=.0003$; Table~\ref{tab:t36}). This shift remains significant if we do not restrict by front latitude ($p=.0048$). A Post-Meiyu rainfall increase in central China and decrease in northern China has also occurred, producing a South Flood-North Drought pattern (Figure~\ref{fig:changes}c). As a result, yearly rainfall has increased in central China even though Pre-Meiyu rainfall changes in that region are actually negative (Figure~\ref{fig:changes}a). Unlike \citet{Yu2010}, our catalog does not exhibit a \nth{20}-century decrease in the intensity of Yangtze River region frontal rainbands during July-August. A significant southward shift in rainband latitude is also found for the whole year ($p=.0032$, Table~\ref{tab:t36}), but this signal is dominated by the Post-Meiyu shift.
 
 \subsubsection{Decadal changes in alternative metrics $M_1-M_8$}
 
@@ -615,21 +633,20 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 % FIGURES SHOWING RESULTS %%
 
-%%FIGURE 3.6 Changes in Meiyu and rainfall behavior between 1951-1979 and 1980-2007
-\begin{figure}[htbp]
-\centering
-\noindent\includegraphics[width=36pc]{Figures/ch3/changes}
-\caption{a) 15-day running mean of the change in rainfall between 1951-1979 and 1980-07, with 95\%/99\% confidence level marked by single/double cross-hatches; b) 15-day running mean of the change in rainband frequency between 1951-1979 and 1980-07, with two-degree smoothing in latitude and confidence levels marked as in a). The significance of rainfall changes is calculated by a permutation method. Time periods are marked as in Figure~\ref{fig:hov}.}
-\label{fig:changes}
-\end{figure}
-
-
-%%FIGURE 3.7 Hovmöller diagram of Meiyu latitude occupancy, 1951-2007. Produced by MATLAB scripts meiyufig1.m and meiyustats_compact.m.
+%%FIGURE 3.6 Hovmöller diagram of Meiyu latitude occupancy, 1951-2007. Produced by MATLAB scripts meiyufig1.m and meiyustats_compact.m.
 \begin{figure}[htbp]
 \centering
 \noindent\includegraphics[width=30pc]{Figures/ch3/meiyu_hovmoller}
 \caption{Hovm\"oller climatology of East Asian rainfall, 1951-2007, with important time periods marked as follows: 1 - Spring Rains; 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; 5 - Fall Rains. a) Precipitation averaged over the longitudes 100-123$^{\circ}$ E; b) Probability of occurrence of a rainband for each day and latitude (both primary and secondary, in percentage), smoothed in time with a 9-day running box filter; c) Probability of primary rainband occurrence and mean intensity (9-day running mean); d) The conditional probability of a secondary rainband given the presence of a primary rainband, as well as the mean tilt and length of primary rainband events (9-day running mean).}
 \label{fig:hov}
+\end{figure}
+
+%%FIGURE 3.7 Changes in Meiyu and rainfall behavior between 1951-1979 and 1980-2007
+\begin{figure}[htbp]
+\centering
+\noindent\includegraphics[width=36pc]{Figures/ch3/changes}
+\caption{a) 15-day running mean of the change in rainfall between 1951-1979 and 1980-07, with 95\%/99\% confidence level marked by single/double cross-hatches; b) 15-day running mean of the change in rainband frequency between 1951-1979 and 1980-07, with two-degree smoothing in latitude and confidence levels marked as in a). The significance of rainfall changes is calculated by a permutation method. Time periods are marked as in Figure~\ref{fig:hov}.}
+\label{fig:changes}
 \end{figure}
 
 %%FIGURE 3.8 Climatology of alternative metrics of China rainfall

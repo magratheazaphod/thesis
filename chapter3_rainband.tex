@@ -1,9 +1,11 @@
 \chapter{The Rainband Detection Algorithm (RDA): A climatology of rainbands in China}
 
 %consider uploading your actual code to this chapter for reproducibility.
+\section{To-do list}
+\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations. 3) Perhaps we should define better what a rainband is in dynamical terms? 4) should include Ping Zhao paper on dynamics - potentially very important}
 
 \section{Abstract}
-A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is compiled from APHRODITE rain gauge data via a recursive convergent image processing algorithm, the Rainband Detection Algorithm (RDA). We produce an unprecedented climatology of Meiyu front progression in summer, and investigate the ``South Flood-North Drought'' pattern of late \nth{20}-century rainfall change in China. We find that the ``South Flood-North Drought'' has resulted from changes in rainbands properties during particular rainfall stages. Two robust changes occurred during 1980-2007 relative to 1951-1979: 1) A decrease in the frequency of frontal rainbands during the Pre-Meiyu period (May), and 2) a southward shift in the latitude of Post-Meiyu rainbands (mid-July to September). In addition, when comparing the years 1994-2007 to 1979-1993, we find an increase in the intensity of frontal rainfall in central China, but with the same frequency of rainband occurrence. The RDA method reveals modifications in rainband behavior that are not captured by other simpler metrics of China rainfall that we tested. By studying historical rainfall change, we begin to address the critical question of whether the South Flood-North Drought will persist under \nth{21}-century global warming.
+A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is compiled from APHRODITE rain gauge data via a recursive convergent image processing algorithm, the Rainband Detection Algorithm (RDA). We produce an unprecedented climatology of Meiyu front progression in summer, and investigate the ``South Flood-North Drought'' pattern of late \nth{20}-century rainfall change in China. We find that the ``South Flood-North Drought'' has resulted from changes in rainbands properties during particular rainfall stages. Two robust changes occurred during 1980-2007 relative to 1951-1979: 1) A decrease in the frequency of frontal rainbands during the Pre-Meiyu period (May), and 2) a southward shift in the latitude of Post-Meiyu rainbands (mid-July to September). In addition, a previously reported shifted in June-July rainfall between 1994-2007 and 1979-1993 resulted from a change in intensity of rainband events while their frequency remained constant. The RDA method reveals modifications in rainband behavior that are not captured by other simpler metrics of China rainfall that we tested. By studying historical rainfall change, we begin to address the critical question of whether the South Flood-North Drought will persist under \nth{21}-century global warming.
 
 \section{Introduction} 
 
@@ -104,15 +106,15 @@ Since the RDA method is complex, we must justify its use by proving that it supp
 	
 	\item $M_3$ - Intensity of maximum precipitation over China (100-123$^{\circ}$E and 20-40$^{\circ}$N);
 	
-	\item $M_4$ - Mean intensity of China rainfall; 
+	\item $M_4$ - Area-averaged intensity of China rainfall; 
 	
-	\item $M_5$ - Mean intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N); 
+	\item $M_5$ - Area-averaged intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N); 
 	
-	\item $M_6$ - Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N); 
+	\item $M_6$ - Area-averaged intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N); 
 	
-	\item $M_7$ - Frequency of North China rainfall;
+	\item $M_7$ - \% of days where $M_5$ exceeds 1 mm day$^{-1}$ (\textit{frequency} of North China rainfall);
 	
-	\item $M_8$ - Frequency of South China rainfall.
+	\item $M_8$ - \% of days where $M_6$ exceeds 1 mm day$^{-1}$ (\textit{frequency} of South China rainfall).
 	
 \end{itemize}
 
@@ -131,15 +133,13 @@ Since the RDA method is complex, we must justify its use by proving that it supp
 %% BOOTSTRAPPING
 \subsection{Significance of Changes: Bootstrapping Algorithms}
 
-	The distributions of rainband latitude and intensity during a given time period obey unknown distributions. Therefore, we require non-parametric tests to estimate the standard deviation of their mean and the significance of changes in mean. We employ bootstrapping with and without replacement (the latter also known as a permutation test), well-established techniques that estimate quantities of interest by constructing synthetic distributions with random sampling of original data \citep{Good2005}. We use bootstrapping with replacement to calculate the standard deviation of means (Tables~\ref{tab:t34},~\ref{tab:t36} and~\ref{tab:t38}). We focus on changes in front attributes between 1951-1979 and 1980-2007 (Tables~\ref{tab:t35} and~\ref{tab:t36}), and also repeat our methodology for 1979-1993 versus 1994-2007. $p$-values listed are from permutation testing with 1000 iterations; the results of bootstrapping with and without replacement are very similar.
+	Observations of rainband latitude and intensity during a given time period obey unknown distributions. Therefore, we require non-parametric tests to estimate the standard deviation of their mean and the significance of changes in mean. We employ bootstrapping with and without replacement (the latter also known as a permutation test), well-established techniques that estimate quantities of interest by constructing synthetic distributions with random sampling of original data \citep{Good2005}. We use bootstrapping with replacement to calculate the standard deviation of means (Tables~\ref{tab:t34},~\ref{tab:t36} and~\ref{tab:t38}). We focus on changes in front attributes between 1951-1979 and 1980-2007 (Tables~\ref{tab:t35} and~\ref{tab:t36}), and also repeat our methodology for 1979-1993 versus 1994-2007 (Tables~\ref{tab:t37} and~\ref{tab:t38}). $p$-values listed are from permutation testing with 10,000 iterations; the results of bootstrapping with and without replacement are very similar.
 	
 	The bootstrap must be adapted for time series featuring temporal autocorrelation. In such time series, a single anomalous weather event will persist over several days, and a bootstrap method will tend to exaggerate the significance of differences between the two original distributions. To avoid this scenario, we use a \textit{moving blocks bootstrap} test, described for instance in \citet{Singh2014}. This technique is identical to bootstrapping with replacement except that samples are drawn in continuous blocks of length $n$ that preserve the time structure of the original data set. Block length is chosen based on decorrelation time scale $\tau$. The autocorrelation of daily rainfall in China is $\tau =~3$ days, and therefore the significance estimates in Figure~\ref{fig:hov}a use a moving blocks bootstrap with block length of 3 days and 1000 iterations. The calculation of significance of change in alternative China rainfall statistics $M_1-M_6$ (Table~\ref{tab:t312}) uses the $\tau$ of each statistic in each season (Table~\ref{tab:t311}) rounded to the nearest integer as block length. In general, a choice of block lengths between 2 and 5 days leads to similar results. Our MATLAB code for the permutation test and the moving blocks bootstrap is included in the appendix.
 	
 	The moving blocks bootstrap cannot be used for time series with gaps. Therefore, we use a permutation test to estimate the significance of changes in mean latitude and intensity of rainbands between time periods (Tables~\ref{tab:t36} and~\ref{tab:t38}). These latter results are verified with Anderson-Darling and Kolmogorov-Smirnov tests, two methods which estimate the significance of shifts in distribution between two sample. These tests are described below.
 
 \subsection{Significance of Changes in Distribution}
-
-\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations. 3) Perhaps we should define better what a rainband is?}
 
 In addition to gauging the significance of changes in mean, we can also test the probability that two samples were drawn from the same distribution. The Kolmogorov-Smirnov and Anderson-Darling tests each define a test statistic based on the largest difference between the observed probability distribution of two samples. Similar to a $t$=test, the value of this test statistic can be translated into a $p$-value. We first define the \textit{empirical distribution function} $F_1(x)$ and $F_2(x)$ of each sample as follows:
 
@@ -202,9 +202,13 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 %% NEW PARAGRAPH - SIMPLY DESCRIBES THE YEARLY CUMULATIVE SOUTH FLOOD-NORTH DROUGHT
 	The yearly mean change in rainfall rate between 100-142$^{\circ}$ E and 20-48$^{\circ}$ N is shown in Figure~\ref{fig:f31}. The ``South Flood-North Drought'' refers in particular to a meridional dipole between zonal bands of rainfall change over eastern China (110-125$^{\circ}$ E and 22-42$^{\circ}$ N), where most of China's population resides. Pronounced local shifts are also visible in Taiwan, South Korea and parts of Japan. This work focuses on eastern China. Annual changes in northern China between 35-40$^{\circ}$ N are significant at a 95 \% confidence level, whereas changes in central and southern China are not. However, there are substantial changes in central and southern China rainfall during particular Meiyu stages, as shown in Figure~\ref{fig:changes}a and discussed below.
 		
-	We test whether the rainband catalog reflects the South Flood-North Drought by calculating changes in rainband frequency during 1980-2007 relative to 1951-1979 (shown as a Hovm\"oller diagram in Figure~\ref{fig:changes}b). We also calculate the significance of changes in rainband attributes during each of the five Meiyu stages (Tables~\ref{tab:t35} and~\ref{tab:t36}). During the Pre-Meiyu (days 121-160), the probability of observing a primary rainband has declined from $59.0\% \pm 2.0\%$ to $53.0\% \pm 2.1\%$ ($p=0.020$; Table~\ref{tab:t35}. Figure~\ref{fig:changes} shows matching decreases in front occurrence and rainfall over central China during this time period. The Pre-Meiyu decrease in rainfall was previously reported by \citet{Xin2006} and \citet{Wang2009}. We propose that diminished rainband occurrence has caused this decrease.
+	We test whether the rainband catalog reflects the South Flood-North Drought by calculating changes in rainband frequency during 1980-2007 relative to 1951-1979 (shown as a Hovm\"oller diagram in Figure~\ref{fig:changes}b). We also calculate the significance of changes in rainband attributes during each of the five Meiyu stages (Tables~\ref{tab:t35} and~\ref{tab:t36}). During the Pre-Meiyu (days 121-160), the probability of observing a primary rainband has declined from $59.0\% \pm 2.0\%$ to $53.0\% \pm 2.1\%$ ($p=0.020$; Table~\ref{tab:t35}. Figure~\ref{fig:changes} shows matching decreases in front occurrence and rainfall over central China during this time period. The Pre-Meiyu decrease in rainfall was previously reported by \citet{Xin2006}, who linked it to decadal change in the North Atlantic Oscillation (NAO), and also by \citet{Wang2009}. We propose that diminished rainband occurrence has caused this decrease.
 		
 	In addition, a southward shift in mean rainband latitude has occurred during the Post-Meiyu (days 201-273, or July 20-Sep 30). We focus on rainbands north of 27$^{\circ}$N; rainbands occurring south of this latitude are produced by the westward-propagating remnants of tropical storms, and therefore dynamically unrelated to other storminess during Meiyu season \citep{Day2015}. Considering both primary and secondary rainbands north of 27$^{\circ}$ N,   mean latitude during 1951-1979 was $33.6^\circ \textrm{N} \pm .3^\circ$ versus $32.9^\circ \textrm{N} \pm .3^\circ$ during 1980-2007 ($p=.0003$; Table~\ref{tab:t36}). This shift remains significant if we do not restrict by front latitude ($p=.0048$). A Post-Meiyu rainfall increase in central China and decrease in northern China has also occurred, producing a South Flood-North Drought pattern (Figure~\ref{fig:changes}c). As a result, yearly rainfall has increased in central China even though Pre-Meiyu rainfall changes in that region are actually negative (Figure~\ref{fig:changes}a). Unlike \citet{Yu2010}, our catalog does not exhibit a \nth{20}-century decrease in the intensity of Yangtze River region frontal rainbands during July-August. A significant southward shift in rainband latitude is also found for the whole year ($p=.0032$, Table~\ref{tab:t36}), but this signal is dominated by the Post-Meiyu shift.
+	
+	%SHORT PARAGRAPHLET on the 1979-1993 v 1994-2007 jump.
+	We test this methodology also with the set of years 1979-1993 versus 1994-2007, when past authors have reported a shift in South China rainfall \citep{Wu2010,Yim2013}.
+	
 
 \subsubsection{Decadal changes in alternative metrics $M_1-M_8$}
 
@@ -225,17 +229,22 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 %would like to include videos - how is this best done?
 
 %% ANDERSON-DARLING AND KOLMOGOROV-SMIRNOV TESTING 
-\subsection{Significance of Changes in Rainband Latitude and Intensity Distribution}
+\subsection{Decadal Change in Distributions of Rainband Latitude and Intensity}
 
- In general, the results of the Anderson-Darling and Kolmogorov-Smirnov tests agree with one another, and confirm earlier results (Tables~\ref{tab:t313} and~\ref{tab:t314}). The Pre-Meiyu decline in rainband frequency after 1979 is not reflected in either test, because it is a change in textit{frequency} rather than distribution. On the other hand, the post-Meiyu southward shift in rainband latitude is found to be highly significant by both tests ($p<.001$). No significant changes in rainband intensity are found between 1951-1979 and 1980-2007. Finally, between the time periods 1979-1993 and 1994-2007, a substantial change is found in both the latitude of rainbands during Meiyu season, as well as their intensity when they occur. These tests help to confirm in a statistically rigorous manner that the changes between the time periods 1951-1979 v 1980-2007 and 1979-1993 v 2004-2007 are of a fundamentally distinct character.
-	 				
+As discussed in Section 3.5, a permutation test of changes in rainband latitude and intensity may exaggerate their significance. We use two independent techniques, a bootstrap Kolmogorov-Smirnov and bootstrap Anderson-Darling test, to verify the results in Table~\ref{tab:t34}. The results of comparing the years 1980-2007 to 1951-1979 is presented in Table~\ref{tab:t313}. Neither test captures the Pre-Meiyu decline in rainband frequency after 1979 since rainband latitude and intensity distributions remain similar. On the other hand, the Post-Meiyu southward shift in rainband latitude is found to be highly significant by both tests ($p<.001$). As before, no significant changes in rainband intensity are found between 1951-1979 and 1980-2007. This suggests that the estimates of significance from permutation testing are trustworthy.
+
+Also, a substantial southward shift in latitude and decrease in intensity of rainbands is found during Meiyu season between 1979-1993 and 1994-2007 ($p<.001$ for both changes; Table~\ref{tab:t314}). This further confirms that rainfall changes observed between 1979-1993 and 1994-2007 are fundamentally different from the South Flood-North Drought pattern of changes between 1951-1979 and 1980-2007.
+
 \section{Conclusion}
 
 	Using a recursive convergent image processing algorithm, we created an unprecedented database and 57-year climatology of frontal rainfall properties over China, including probability of rainband occurrence and mean latitude, intensity, tilt, width and length. Two statistically significant changes in rainband attributes occurred between the years 1951-1979 and 1980-2007: 1) A decrease in frequency during the Pre-Meiyu season (days 121-160, May 1-June 9; $p=.020$); and 2) A southward shift in latitude of rainbands during the Post-Meiyu season (days 201-273, July 20-Sep 30; $p=.0003$). The latter change is responsible for the South Flood-North Drought trend in total yearly rainfall. During 1994-2007 versus 1979-1993, a substantially different change is found featuring a substantial change in both rainband latitude and intensity during Meiyu season, as quantified by an Anderson-Darling test ($p=.0002$ and $p=.0006$ respectively). Our algorithm shows that 55.6\% of total rainfall falling over China from 1951 to 2007 occurs in rainbands. The development of the rainband detection algorithm allows us to study both frontal rainfall, which is associated with larger-scale variability, and local storms, which may result from meso-scale features such as low mountains, and the distinct changes in each. Each type of rainfall is separately available our data set.
 	
+	IMPORTANT: The purpose of this chapter is not to speculate on the atmospheric dynamics responsible for these changes, but rather to provide the best possible account of past changes based on which other researchers can develop their theories.
+	
 		It is essential to understand whether the South Flood-North Drought will persist under \nth{21}-century warming, or manifests an ephemeral decadal change. However, the CMIP5 (Climate Model Intercomparison Project) model suite contained in the Intergovernmental Panel on Climate Change's Fifth Assessment Report (IPCC AR5) does not agree on the sign of future summer rainfall changes in East Asia \citep{Christensen2011}. In this study, we have found robust changes in frontal rainfall. The poleward expansion of the Hadley Cell is projected to continue under \nth{21}-century warming \citep{Lu2007,Kang2012}, but a recent study predicts that anomalous \nth{21}-century heating of the eastern Pacific Ocean will drive the Pacific jet further equatorward \citep{Park2014}. By linking the South Flood-North Drought to changes in the seasonal advance of the tropospheric jet, we open the possibility of projecting \nth{21}-century East Asian rainfall change by improving our understanding of the effect of further global warming on the regional and global behavior of the tropospheric jet.
 		
 	The change in rainfall between 1979-1993 and 1994-2007 is of a different character than the changes found between 1951-1979 and 1980-2007. It is tempting to associate it with the great industrialization of China during these decades subsequent to the Revolutionary Reform and Opening (in Chinese \textit{gaige kaifang} instituted by Deng Xiaoping in 1979, and the resulting addition of massive quantities of aerosols during the subsequent industrialization and urbanization.
+	%% CONSIDER CITING Fan2012
 	
 	Our study also shows that the whole of Taiwan has experienced a deficit in rainfall during the end of the twentieth century. In particular, the south and eastern coast on the east of the Central Mountain Range saw the largest decrease during 1980-2007 versus 1951-1979 in all of East Asia according to APHRODITE (NUMBER). According to RDA, this region receives a relatively small percentage of rainfall through rainbands (Figure~\ref{fig:frontpct}). The climatology of this region shows that it is dependent on typhoons for a sizable fraction of yearly totals. Changes in western Pacific typhoons have previously been reported. Thus, the RDA algorithm can help us distinguish between rainband changes associated with larger-scale dynamics, and other rainfall changes that have a more local explanation.
 	
@@ -295,7 +304,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 	 Taiwan days (TW$>20\%$) & 238 (2.1\%) \\
 	 $Q>.6$ (strong rainband) & 7,522 (67.0\%) \\
 	 Double rainband ($Q_1>.6$ and $Q_2>.6$) & 466 (4.2\%) \\
-	 Poor fit (Fails QC) & 3008 (26.8\%) \\
+	 Poor fit (Fails QC) & 3002 (26.8\%) \\
 	 
 \end{tabular}
 \label{tab:t32}
@@ -304,7 +313,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 %%% TABLE 3.3 - ALGORITHM FUNCTIONALITY - DETAILS, SECONDARY RAINBAND
 \begin{table}[h]
 
-\caption{Details on the application of quality control (QC) criteria to secondary rainbands. Type I and Type II fits are defined in supplementary text above.}
+\caption{Details on the application of quality control (QC) criteria to secondary rainbands. Type I and Type II fits are explained in greater detail in Section 3.5.}
 \centering
 
 \begin{tabular}{ l c}
@@ -323,7 +332,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \begin{landscape} %rotates the page of the PDF showing this table (too big otherwise)
 \begin{table}[h]
 \centering
-\caption{Total number of rainbands, frequency of primary and secondary rainbands and latitude and intensity (mm day$^{-1}$) of rainbands during the Spring Rains, Pre-Meiyu, Meiyu season, Post-Meiyu, Fall Rains and for the full year. We also list the decorrelation timescale $\tau_1$  and $\tau_2$ of primary and secondary fronts. Statistics are compiled using both primary and secondary rainbands, and are very close to results using primary rainbands alone, except during the Post-Meiyu period when secondary rainbands are common. Standard deviations for latitude and intensity are obtained by a permutation method with 10,000 iterations.}
+\caption{Total number of rainband counts (both primary and secondary), frequency of primary and secondary rainbands and latitude and intensity (mm day$^{-1}$) of rainbands during the Spring Rains, Pre-Meiyu, Meiyu season, Post-Meiyu, Fall Rains and for the full year. We also list the decorrelation timescale $\tau_1$  and $\tau_2$ of primary and secondary fronts. Statistics are compiled using both primary and secondary rainbands, and are very close to results using primary rainbands alone, except during the Post-Meiyu period when secondary rainbands are common. Standard deviations for latitude and intensity are obtained by a permutation method with 10,000 iterations.}
 
 \begin{tabular}{ l c c c c c c c c c}
 	 \multicolumn{10}{c}{\textbf{1951-2007 Means}} \\
@@ -348,7 +357,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Change in frequency of primary and secondary rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and $p$-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in frequency of primary and secondary rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and $p$-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Primary rainband \%} & \multicolumn{3}{c}{Secondary rainband \%} \\
@@ -372,7 +381,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Change in latitude and intensity of rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and $p$-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in latitude and intensity of rainbands between 1951-1979 and 1980-2007, with standard deviation of mean and $p$-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Rainband latitude ($^\circ$)} & \multicolumn{3}{c}{Intensity (mm day$^{-1})$} \\
@@ -396,7 +405,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Change in frequency of primary and secondary rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and $p$-value of change calculated analytically. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in frequency of primary and secondary rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and $p$-value of change calculated analytically. No changes below are statistically significant at a 95\% level.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Primary rainband \%} & \multicolumn{3}{c}{Secondary rainband \%} \\
@@ -420,7 +429,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Change in latitude and intensity of rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and $p$-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Change in latitude and intensity of rainbands between 1979-1993 and 1994-2007, with standard deviation of mean and $p$-value of change both calculated by a permutation test with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively.}
 
 \begin{tabular}{ l c c c c c c}
 	& \multicolumn{3}{c}{Rainband latitude ($^\circ$)} & \multicolumn{3}{c}{Intensity (mm day$^{-1})$} \\
@@ -446,7 +455,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \footnotesize
 \centering
 
-\caption{Mean and standard deviation of mean of metrics $M_1$ to $M_8$ for 1951-1979 as previously defined. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold as subsequently calculated in Table S12.}
+\caption{Mean and standard deviation of mean for metrics $M_1$ to $M_8$ for 1951-1979. $M_1$: Latitude of maximum daily precipitation $(^\circ)$. $M_2$: Intensity-weighted centroid of daily precipitation $(^\circ)$. $M_3$: Intensity of maximum precipitation over China (100-123$^{\circ}$E and 20-40$^{\circ}$N, mm day$^{-1}$). $M_4$: Area-averaged intensity of China rainfall (mm day$^{-1}$). $M_5$: Area-averaged intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N,  mm day$^{-1}$). $M_6$: Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N, mm day$^{-1}$). $M_7$: Frequency of North China rainfall (\%). $M_8$: Frequency of South China rainfall (\%). \textit{Frequency} denotes percentage of days where mean rainfall over specified area exceeds 1 mm day$^{-1}$. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively as subsequently calculated in Table~\ref{tab:t312}.}
 
 \begin{tabular}{ l c c c c c c c c}
 	 \multicolumn{9}{c}{\textbf{1951-1979 Means}}  \\
@@ -468,7 +477,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \footnotesize
 \centering
 
-\caption{Mean and standard deviation of mean of metrics $M_1$ to $M_8$ for 1980-2007 as previously defined. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold as subsequently calculated in Table S12.}
+\caption{Mean and standard deviation of mean of metrics $M_1$ to $M_8$ for 1980-2007. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively as subsequently calculated in Table~\ref{tab:t312}.}
 
 \begin{tabular}{ l c c c c c c c c}
 	 \multicolumn{9}{c}{\textbf{1980-2007 Means}} \\
@@ -511,7 +520,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Significance level $p$ of changes in metrics $M_1$-$M_8$ between 1951-1979 and 1980-2007, as calculated by a moving blocks bootstrap for latitude and intensity metrics with 10,000 iterations and block length of $\tau$ rounded up to nearest integer, and analytically calculated using effective degrees of freedom N=$n/\tau$ for frequency metrics $M_7$ and $M_8$. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Significance level $p$ of changes in metrics $M_1$-$M_8$ between 1951-1979 and 1980-2007, as calculated by a moving blocks bootstrap for latitude and intensity metrics with 10,000 iterations and block length of $\tau$ rounded up to nearest integer, and analytically calculated using effective degrees of freedom $N=n/\tau$ for frequency metrics $M_7$ and $M_8$. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively.}
 
 \begin{tabular}{ l c c c c c c c c}
 	 \multicolumn{9}{c}{\textbf{1980-2007 Means}} \\
@@ -534,20 +543,20 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Statistical significance (express as $p$-value) of change in distribution of latitude and intensity of rainbands between 1951-1979 and 1980-2007, as calculated by a bootstrap Kolmogorov-Smirnov (K-S) and bootstrap Anderson-Darling (A-D) test, each with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Statistical significance (express as $p$-value) of change in distribution of latitude and intensity of rainbands between 1951-1979 and 1980-2007, as calculated by a bootstrap Kolmogorov-Smirnov (K-S) and bootstrap Anderson-Darling (A-D) test, each with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively.}
 
 \begin{tabular}{ l c c c c}
 												& \multicolumn{2}{c}{Latitude} & \multicolumn{2}{c}{Intensity} \\
-	 \textbf{Time Period} 							& $\boldsymbol{A-D}$ & $\boldsymbol{K-S}$ 		& $\boldsymbol{A-D}$ & $\boldsymbol{K-S}$ \\
+	 \textbf{Time Period} 							& $\textbf{K-S}$ & $\textbf{A-D}$ 		& $\textbf{K-S}$ & $\textbf{A-D}$ \\
 	 \hline
-	\textbf{Spring Rains} (Mar 1-Apr 30, 60-120)  		& .037			& .086			& .083	& .19 \\
-	\textbf{Pre-Meiyu} (May 1-Jun 9, 121-160)  		& .086 			&  .24 			& .90	& .94 \\
-	\textbf{Meiyu} (Jun 10-Jul 19, 161-120)			& .21			&  .30			&  .40	& .25 \\	
-	\textbf{Post-Meiyu} (Jul 20-Sep 30) 				& \textbf{.0018*}	&  \textbf{.0073}  	&  .24 	& .28 \\
-	\textbf{Post-Meiyu} (Jul 20-Sep 30), $>28^{\circ}N$   & \textbf{.0001*}	&  \textbf{.0010*} 	&  .10 	& .04 \\	
-	\textbf{Post-Meiyu} (Jul 20-Sep 30), $<28^{\circ}N$   & .33			&  .38			&  .62	& .53 \\	
-	\textbf{Fall Rains} (Oct 1-Nov 16) 					& .15 			&  .23			&  .83 	& .94 \\	
-	\textbf{Full Year} (1-365)						& \textbf{.016}	&  .075 			&  .12 	& .26 \\	
+	\textbf{Spring Rains} (Mar 1-Apr 30, 60-120)  		& .086			& .037			& .19	& .083 \\
+	\textbf{Pre-Meiyu} (May 1-Jun 9, 121-160)  		& .24 			&  .086 			& .94	& .90 \\
+	\textbf{Meiyu} (Jun 10-Jul 19, 161-120)			& .30			&  .21			&  .25	& .40 \\	
+	\textbf{Post-Meiyu} (Jul 20-Sep 30) 				& \textbf{.0073}	&  \textbf{.0018*}  	&  .28 	& .24 \\
+	\textbf{Post-Meiyu} (Jul 20-Sep 30), $>28^{\circ}N$   & \textbf{.0010*}	&  \textbf{.0001*} 	&  .04 	& .10 \\	
+	\textbf{Post-Meiyu} (Jul 20-Sep 30), $<28^{\circ}N$   & .38			&  .33			&  .53	& .62 \\	
+	\textbf{Fall Rains} (Oct 1-Nov 16) 					& .23 			&  .15			&  .94 	& .83 \\	
+	\textbf{Full Year} (1-365)						& .075			&  \textbf{.016} 	&  .26 	& .12 \\	
 	
 \end{tabular}
 \label{tab:t313}
@@ -559,20 +568,20 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 
 \centering
 
-\caption{Statistical significance (expressed as $p$-value) of change in distribution of latitude and intensity of rainbands between 1979-1993 and 1994-2007, as calculated by a bootstrap Kolmogorov-Smirnov (K-S) and bootstrap Anderson-Darling (A-D) test, each with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold/asterisk and bold.}
+\caption{Statistical significance (expressed as $p$-value) of change in distribution of latitude and intensity of rainbands between 1979-1993 and 1994-2007, as calculated by a bootstrap Kolmogorov-Smirnov (K-S) and bootstrap Anderson-Darling (A-D) test, each with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively.}
 
 \begin{tabular}{ l c c c c}
 												& \multicolumn{2}{c}{\textbf{Latitude}} & \multicolumn{2}{c}{\textbf{Intensity}} \\
-	 \textbf{Time Period} 							& $\boldsymbol{AD}$ & $\boldsymbol{KS}$ 		& $\boldsymbol{AD}$ & $\boldsymbol{KS}$ \\
+	 \textbf{Time Period} 							& $\textbf{K-S}$ & $\textbf{A-D}$ 		& $\textbf{K-S}$ & $\textbf{A-D}$ \\
 	 \hline
-	\textbf{Spring Rains} (Mar 1-Apr 30, 60-120)  		& .12			& .34			& .60			& .35 \\
-	\textbf{Pre-Meiyu} (May 1-Jun 9, 121-160)  		& .57 			&  .76 			& .29			& .32 \\
-	\textbf{Meiyu} (Jun 10-Jul 19, 161-120)			& \textbf{.0002*}	&  \textbf{.0006*}	&  \textbf{.0006*}	& \textbf{.0009*} \\	
-	\textbf{Post-Meiyu} (Jul 20-Sep 30) 				& .15			&  .14 			&  .87 			& .48 \\
-	\textbf{Post-Meiyu} (Jul 20-Sep 30), $>28^{\circ}N$   & .35			&  .13 			&  .35 			& .26 \\	
-	\textbf{Post-Meiyu} (Jul 20-Sep 30), $<28^{\circ}N$   & .60			&  .67			&  .36			& .70 \\	
-	\textbf{Fall Rains} (Oct 1-Nov 16) 					& .092 			&  .16			&  .17 			& .40 \\	
-	\textbf{Full Year} (1-365)						& .29			&  .14			&  .062 			& .090 \\	
+	\textbf{Spring Rains} (Mar 1-Apr 30, 60-120)  		& .34			& .12			& .35			& .60 \\
+	\textbf{Pre-Meiyu} (May 1-Jun 9, 121-160)  		& .76			&  .57 			& .32			& .29 \\
+	\textbf{Meiyu} (Jun 10-Jul 19, 161-120)			& .\textbf{.0006*}	&  \textbf{.0002*}	&  \textbf{.0009*}	& \textbf{.0006*} \\	
+	\textbf{Post-Meiyu} (Jul 20-Sep 30) 				& .14			&  .15 			&  .48			& .87 \\
+	\textbf{Post-Meiyu} (Jul 20-Sep 30), $>28^{\circ}N$   & .13			&  .35 			&  .26 			& .35 \\	
+	\textbf{Post-Meiyu} (Jul 20-Sep 30), $<28^{\circ}N$   & .67			&  .60			&  .70			& .36 \\	
+	\textbf{Fall Rains} (Oct 1-Nov 16) 					& .16	 		&  .092			&  .40 			& .17 \\	
+	\textbf{Full Year} (1-365)						& .14			&  .29			&  .090	 		& .062 \\	
 	
 \end{tabular}
 \label{tab:t314}

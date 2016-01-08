@@ -2,7 +2,7 @@
 
 %consider uploading your actual code to this chapter for reproducibility.
 \section{To-do list}
-\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations. 3) Perhaps we should define better what a rainband is in dynamical terms? 4) should include Ping Zhao paper on dynamics - potentially very important}
+\textbf{Problems: 1) what do the letters mean in the A-D test definition? 2) check number of iterations. 3) Perhaps we should define better what a rainband is in dynamical terms? 4) should include Ping Zhao paper on dynamics - potentially very important. 5) Check that section references are OK}
 
 \section{Abstract}
 A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is compiled from APHRODITE rain gauge data via a recursive convergent image processing algorithm, the Rainband Detection Algorithm (RDA). We produce an unprecedented climatology of Meiyu front progression in summer, and investigate the ``South Flood-North Drought'' pattern of late \nth{20}-century rainfall change in China. We find that the ``South Flood-North Drought'' has resulted from changes in rainbands properties during particular rainfall stages. Two robust changes occurred during 1980-2007 relative to 1951-1979: 1) A decrease in the frequency of frontal rainbands during the Pre-Meiyu period (May), and 2) a southward shift in the latitude of Post-Meiyu rainbands (mid-July to September). In addition, a previously reported shifted in June-July rainfall between 1994-2007 and 1979-1993 resulted from a change in intensity of rainband events while their frequency remained constant. The RDA method reveals modifications in rainband behavior that are not captured by other simpler metrics of China rainfall that we tested. By studying historical rainfall change, we begin to address the critical question of whether the South Flood-North Drought will persist under \nth{21}-century global warming.
@@ -597,7 +597,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \begin{figure}
 \centering
 \noindent\includegraphics[width=36pc]{Figures/ch3/changes_2d_nojet}
-\caption{Difference in mean rainfall between 1980-2007 and 1951-1979. The South Flood-North Drought pattern is visible between 110-125$^{\circ}$ E and 22-42$^{\circ}$ N over mainland China. Changes significant at a 95/99\% level are marked with single/double cross-hatches respectively.}
+\caption{Difference in yearly mean rainfall between 1980-2007 and 1951-1979. The South Flood-North Drought pattern is visible between 110-125$^{\circ}$E and 22-42$^{\circ}$N over mainland China. Changes significant at a 95\%/99\% level are marked with single/double cross-hatches respectively.}
 \label{fig:f31}
 \end{figure}
 
@@ -608,16 +608,16 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 %%FIGURE 3.2 - displaying continuous maximum criterion required to attempt rainband fit
 \begin{figure}[htbp]
 \centering
-\noindent\includegraphics[width=36pc]{Figures/ch3/S1}
-\caption{The first step of the rainband detection algorithm checks to see whether a five-degree continuous longitudinal band of precipitation maxima above 10 mm day$^{-1}$ exists. If so, a rainband fit is attempted. a) 25 May 2007 - the continuous maximum criterion is met and a fit is attempted. b) 11 June 2007 - although there is abundant rainfall in some locations, it appears not to be frontal and the continuous maximum criterion is failed. No fit is attempted.}
+\noindent\includegraphics[width=40pc]{Figures/ch3/S1}
+\caption{On each day, RDA first checks whether a continuous band of precipitation maxima exceeding 10 mm day$^{-1}$ exists that spans over 5 degrees of longitude. If so, a rainband fit is attempted. In panels a and b, the latitude of maximum precipitation at each longitude is marked with a black X. The longest continuous chain of maxima exceeding 10 mm day$^{-1}$ is marked in red. a) 25 May 2007 - the continuous maximum criterion is met and a fit is attempted.  b) 11 June 2007 - although there is abundant rainfall in some locations, no band is visible and the continuous maximum criterion is failed. No fit is attempted.}
 \label{fig:f32}
 \end{figure}
 
 %%FIGURE 3.3 - How the convergent fit algorithm works.
 \begin{figure}[htbp]
 \centering
-\noindent\includegraphics[width=36pc]{Figures/ch3/S2}
-\caption{Display of the functionality of the recursive convergent algorithm. On 29 April 2007, a strong maximum in southernmost China skews our initial rainband fit (a), but the algorithm eventually converges on the most prominent coherent band via tighter windowing (d).}
+\noindent\includegraphics[width=40pc]{Figures/ch3/S2}
+\caption{Display of the functionality of the recursive convergent fit. Dashed line shows estimated rainband position before each iteration and the solid lines indicate the window within we search for maxima. On 29 April 2007, a strong maximum in southernmost China skews our initial rainband fit (a), but the algorithm eventually converges on its true position via tighter windowing (d).}
 \label{fig:f33}
 \end{figure}
 
@@ -626,16 +626,16 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 %%FIGURE 3.4 - Quality Control algorithm used to determine inclusion in statistics
 \begin{figure}[htbp]
 \centering
-\noindent\includegraphics[width=36pc]{Figures/ch3/S4}
-\caption{A quality control algorithm is used to exclude poor fits. a) 18 August 2007 - Days with a high Taiwan fraction (here, corresponding to the passage of Typhoon Sepat) are excluded from our statistics. b) June 4 2007 - A high-quality fit is achieved. c) 17 April 2007 - Although a fit is reached, it explains the distribution of daily rainfall poorly and is therefore excluded from rainband statistics. d) 21 May 2007 (same day as Figure~\ref{fig:f35}) - An initial fit appears to be of poor quality ($Q<.6$). However, after finding a secondary rainband, we determine that conditional quality scores $Q_1$ and $Q_2$ are high, and the day is included in our statistics.}
+\noindent\includegraphics[width=40pc]{Figures/ch3/S4}
+\caption{A quality control algorithm is used to exclude poor fits. a) 18 August 2007 - Days with a high Taiwan fraction (here, corresponding to the passage of Typhoon Sepat) are excluded from our statistics. b) June 4 2007 - A high-quality fit is achieved. c) 17 April 2007 - Although a tentative fit is obtained, it explains the distribution of rainfall poorly and is therefore unsuccessful. d) 21 May 2007 (same day as Figure~\ref{fig:f35}) - An initial fit appears to be of poor quality ($Q<.6$). However, after finding a secondary rainband, we determine that conditional quality scores $Q_1$ and $Q_2$ are sufficiently high, and the double rainband fit is successful.}
 \label{fig:f34}
 \end{figure}
 
 %%FIGURE 3.5 - Procedure for finding double rainbands
 \begin{figure}[htbp]
 \centering
-\noindent\includegraphics[width=36pc]{Figures/ch3/S3}
-\caption{a) The algorithm converges on the strongest rainband, around 37N (defined as the ``primary rainband''). b) The rainfall associated with the primary rainband is removed, and we check for the presence of another rainband (a ``secondary rainband''), again using the continuous maximum criterion.}
+\noindent\includegraphics[width=42pc]{Figures/ch3/S3}
+\caption{a) The first pass of the recursive fit algorithm converges on the strongest rainband, around 37$^{\circ}$N (defined as the ``primary rainband''). The \textit{banded rainfall} associated with the primary band is shaded with red hatchmarks. b) All banded rainfall from the primary band is removed, and we check for the presence of another rainband (a ``secondary rainband''), again using the continuous maximum criterion. When this criterion is satisfied, we find the secondary rainband's position with the recursive fit algorithm.}
 \label{fig:f35}
 \end{figure}
 
@@ -646,8 +646,8 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 %%FIGURE 3.6 Hovmöller diagram of Meiyu latitude occupancy, 1951-2007. Produced by MATLAB scripts meiyufig1.m and meiyustats_compact.m.
 \begin{figure}[htbp]
 \centering
-\noindent\includegraphics[width=30pc]{Figures/ch3/meiyu_hovmoller}
-\caption{Hovm\"oller climatology of East Asian rainfall, 1951-2007, with important time periods marked as follows: 1 - Spring Rains; 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; 5 - Fall Rains. a) Precipitation averaged over the longitudes 100-123$^{\circ}$ E; b) Probability of occurrence of a rainband for each day and latitude (both primary and secondary, in percentage), smoothed in time with a 9-day running box filter; c) Probability of primary rainband occurrence and mean intensity (9-day running mean); d) The conditional probability of a secondary rainband given the presence of a primary rainband, as well as the mean tilt and length of primary rainband events (9-day running mean).}
+\noindent\includegraphics[width=32pc]{Figures/ch3/meiyu_hovmoller}
+\caption{Climatology of East Asian rainfall and rainbands, 1951-2007, with important time periods marked as follows: 1 - Spring Rains; 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; 5 - Fall Rains. a) Hovm\"oller diagram of precipitation (100-123$^{\circ}$E longitudinal average); b) Hovm\"oller diagram of absolute probability of observing a rainband (both primary and secondary), smoothed in time with a 9-day and 2$^{\circ}$-running box filter; c) Probability of primary rainband occurrence and mean intensity (9-day running mean); d) The conditional probability of a secondary rainband given the presence of a primary rainband, as well as the mean tilt and length of primary rainband events (9-day running mean).}
 \label{fig:hov}
 \end{figure}
 
@@ -663,7 +663,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \begin{figure}[htbp]
 \centering
 \noindent\includegraphics[width=36pc]{Figures/ch3/changes}
-\caption{a) 15-day running mean of the change in rainfall between 1951-1979 and 1980-07, with 95\%/99\% confidence level marked by single/double cross-hatches; b) 15-day running mean of the change in rainband frequency between 1951-1979 and 1980-07, with two-degree smoothing in latitude and confidence levels marked as in a). The significance of rainfall changes is calculated by a permutation method. Time periods are marked as in Figure~\ref{fig:hov}.}
+\caption{a) 15-day running mean of the change in rainfall between 1951-1979 and 1980-07, with 95\%/99\% confidence level marked by single/double cross-hatches; b) 15-day running mean of the change in rainband frequency between 1951-1979 and 1980-07, with two-degree smoothing in latitude and confidence levels marked as in a). The significance of rainfall changes is calculated by a permutation method. Time periods are marked as in Figure~\ref{fig:hov}: 1 - Spring Rains; 2 - Pre-Meiyu; 3 - Meiyu; 4 - Post-Meiyu; 5 - Fall Rains.}
 \label{fig:changes}
 \end{figure}
 
@@ -671,7 +671,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \begin{figure}[htb]
 \centering
 \includegraphics[width=36pc]{Figures/ch3/met_climo}
-\caption{Yearly climatology of alternative metrics of China rainfall. a) Latitude of maximum precipitation and of precipitation centroid (metrics $M_1-M_2$); b) Intensity of maximum precipitation over China ($M_3$); c) Mean intensity of China rainfall, North China rainfall and South China rainfall ($M_4-M_6$); d) Frequency of North China rainfall and South China rainfall ($M_7-M_8$). China region is defined as 105-123$^{\circ}$E and 20-40$^{\circ}$N, North China as 107.5-125$^{\circ}$E and 37-42$^{\circ}$N and South China as 107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N.}
+\caption{Yearly climatology of alternative metrics of China rainfall $M_1-M_8$. a) Latitude of maximum precipitation (blue dash, $M_1$) and intensity-weighted centroid of precipitation latitude (red, $M_2$); b) Intensity of maximum precipitation over China ($M_3$); c) Mean intensity of China rainfall (black, $M_4$), North China rainfall (thin light blue, $M_5$) and South China rainfall (red dash, $M_6$); d) Frequency of North China rainfall (light blue, $M_7$) and South China rainfall (red, $M_8$). China region is defined as 105-123$^{\circ}$E and 20-40$^{\circ}$N, North China as 107.5-125$^{\circ}$E and 37-42$^{\circ}$N and South China as 107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N.}
 \label{fig:type_changes}
 \end{figure}
 
@@ -679,7 +679,7 @@ $A$ can likewise be translated into a $p$-value. The K-S and A-D tests must be f
 \begin{figure}[htb]
 \centering
 \noindent\includegraphics[width=36pc]{Figures/ch3/decadal_front}
-\caption{1980-2007 versus 1951-1979 changes in frontal and local rainfall for full year (a and b), Pre-Meiyu (c and d) and Post-Meiyu (e and f), with significance at the 95\%/99\% level marked by single/double hatches.}
+\caption{1980-2007 versus 1951-1979 changes in banded and local rainfall for full year (a and b respectively), Pre-Meiyu (c and d) and Post-Meiyu (e and f), with significance at the 95\%/99\% level marked by single/double hatches.  On a given day, \textit{banded} rainfall consists of all rainfall falling within 4$^{\circ}$ of a rainband axis and rainfall at any other adjacent point exceeding 10 mm day$^{-1}$. \textit{Local} rainfall includes all other rainfall.}
 \label{fig:decadal_front}
 \end{figure}
 	

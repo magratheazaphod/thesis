@@ -1,11 +1,7 @@
 \chapter{The Rainband Detection Algorithm (RDA): A climatology of rainbands in China}
 
-%consider uploading your actual code to this chapter for reproducibility.
-\section{To-do list}
-\textbf{Problems: 3) explain dynamics of rainbands better? 5) Check that section references are OK 6) sort out use of precipitation versus rainband 8) Just for my purposes, wouldn't it be good to know what the overall pattern of rainfall change is between 1979-1993 and 1994-2007? 9) Probably need to search through the Zhou Tianjun library of papers and make sure I give credit where necessary}
-
 \section{Abstract}
-A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is compiled from APHRODITE rain gauge data via a recursive convergent image processing algorithm, the Rainband Detection Algorithm (RDA). We produce an unprecedented climatology of Meiyu front progression in summer, and investigate the ``South Flood-North Drought'' pattern of late \nth{20}-century rainfall change in China. We find that the ``South Flood-North Drought'' has resulted from changes in rainbands properties during particular rainfall stages. Two robust changes occurred during 1980-2007 relative to 1951-1979: 1) A decrease in the frequency of frontal rainbands during the Pre-Meiyu period (May), and 2) a southward shift in the latitude of Post-Meiyu rainbands (mid-July to September). In addition, a previously reported shifted in June-July rainfall between 1994-2007 and 1979-1993 resulted from a change in intensity of rainband events while their frequency remained constant. The RDA method reveals modifications in rainband behavior that are not captured by other simpler metrics of China rainfall that we tested. By studying historical rainfall change, we begin to address the critical question of whether the South Flood-North Drought will persist under \nth{21}-century global warming.
+A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is compiled from APHRODITE rain gauge data via a recursive convergent image processing algorithm, the Rainband Detection Algorithm (RDA). We produce an unprecedented climatology of Meiyu front progression in summer, and investigate the ``South Flood-North Drought'' pattern of late \nth{20}-century rainfall change in China. We find that the ``South Flood-North Drought'' has resulted from changes in rainbands properties during particular rainfall stages. Two robust changes occurred during 1980-2007 relative to 1951-1979: 1) A decrease in the frequency of frontal rainbands during the Pre-Meiyu period (May), and 2) a southward shift in the latitude of Post-Meiyu rainbands (mid-July to September). In addition, a previously reported shifted in June-July rainfall between 1994-2007 and 1979-1993 resulted from a change in intensity of frontal rainfall events, even though their frequency remained constant. The RDA method reveals modifications in rainband behavior that are not captured by other simpler metrics of China rainfall that we tested. By studying historical rainfall change, we begin to address the critical question of whether the South Flood-North Drought will persist under \nth{21}-century global warming.
 
 \section{Introduction} 
 
@@ -19,13 +15,15 @@ A novel 57-year (1951-2007) daily catalog of frontal rainbands over China is com
 
 \textcolor{blue}{\textbf{Can possibly remove subsection since described previously in thesis.}}
 
-	The APHRO\_MA\_V1101 product from APHRODITE (Asian Precipitation - Highly-Resolved Observational Data Integration Towards Evaluation of the Water Resources) includes 57 years (1951-2007) of daily rainfall (PRECIP product) on a .25$^{\circ}$\ $\times$ .25$^{\circ}$\ grid over 60-150$^{\circ}$ E and 15$^{\circ}$ S-55$^{\circ}$ N \citep{Yatagai2012}. Values are assimilated from weather station observations and therefore available over land only. We focus on the subregion inside of 100$^{\circ}$ E-123$^{\circ}$ E and 20$^{\circ}$ N-40$^{\circ}$ N, where Meiyu rainbands occur. Stations in this region are spaced at 100-200 km intervals (shown by RSTN product), such that rainbands are clearly resolved. APHRODITE's resolution cannot capture some features visible in TRMM satellite data \citet{Xu2009}, but its length allows for the study of decadal change.
+	The APHRO\_MA\_V1101 product from APHRODITE (Asian Precipitation - Highly-Resolved Observational Data Integration Towards Evaluation of the Water Resources) includes 57 years (1951-2007) of daily rainfall (PRECIP product) on a .25$^{\circ}$\ $\times$ .25$^{\circ}$\ grid over 60-150$^{\circ}$ E and 15$^{\circ}$ S-55$^{\circ}$ N \citep{Yatagai2012}. Values are assimilated from weather station observations and therefore available over land only. We focus on the subregion inside of 100$^{\circ}$ E-123$^{\circ}$ E and 20$^{\circ}$ N-40$^{\circ}$ N, where Meiyu rainbands occur. Stations in this region are spaced at 100-200 km intervals (shown by RSTN product), such that rainbands are clearly resolved. APHRODITE's resolution cannot capture some features visible in TRMM satellite data \citet{Xu2009}, but its length allows for the study of decadal change. Since almost all precipitation in this region falls as rain, we use the words ``rainfall'' and ``precipitation'' interchangeably in the rest of this work.
 	
 \section{Rainband Detection Algorithm (RDA)}
 
 \subsection{Overview}
 
-	For each day from 1 January 1951 to 31 December 2007 (20,819 days total), RDA determines whether a rainband exists inside the window of 105-123$^{\circ}$ E and 20-40$^{\circ}$ N, a region hereafter referred to as ``East China.'' A rainband is defined as a continuous chain of rainfall maxima exceeding 10 mm day$^{-1}$ spanning at least 5$^{\circ}$ of longitude. If a rainband exists, its properties are calculated including latitude, intensity, tilt, length and width, as well as a ``quality score'' $Q$, defined as the fraction of daily total East China rainfall falling within the band. Fits with poor $Q$ are discarded. We also test for the existence of two rainbands on a single day, an arrangement commonly found in August and September. In such a case, the first and second fitted rainbands are referred to as ``primary'' and ``secondary'' rainbands respectively. Our algorithm does not distinguish between the mechanisms that supply rainfall. A description in greater detail follows.
+	For each day from 1 January 1951 to 31 December 2007 (20,819 days total), RDA determines whether a rainband exists inside the window of 105-123$^{\circ}$ E and 20-40$^{\circ}$ N, a region hereafter referred to as ``East China.'' A rainband is defined as a continuous chain of rainfall maxima exceeding 10 mm day$^{-1}$ spanning at least 5$^{\circ}$ of longitude. If a rainband exists, its properties are calculated including latitude, intensity, tilt, length and width, as well as a ``quality score'' $Q$, defined as the fraction of daily total East China rainfall falling within the band. Fits with poor $Q$ are discarded. We also test for the existence of two rainbands on a single day, an arrangement commonly found in August and September. In such a case, the first and second fitted rainbands are referred to as ``primary'' and ``secondary'' rainbands respectively. A description of algorithm functionality in greater detail follows.
+	
+	We cannot distinguish between the mechanisms that supply rainfall. Any storm that propagates zonally over the course of a day will be interpreted as a rainband, regardless even of whether it propagates westward or eastward. However, from observation, storms reaching East China during the rainiest months of the East Asian summer monsoon are predominantly westerly \citep{Day2015}. Therefore, we expect that RDA detects similar types of rainfall events from one summer to the next, allowing for meaningful analysis of decadal changes.  
 	
 \subsection{Recursive Convergent Image Processing}
 
@@ -103,11 +101,11 @@ Since the RDA method is complex, we must justify its use by proving that it supp
 
 \begin{itemize}
 
-	\item $M_1$ - Latitude of maximum precipitation;
+	\item $M_1$ - Latitude of maximum rainfall;
 	
-	\item $M_2$ - Intensity-weighted centroid of daily precipitation latitude;
+	\item $M_2$ - Intensity-weighted centroid of daily rainfall latitude;
 	
-	\item $M_3$ - Intensity of maximum precipitation over China (100-123$^{\circ}$E and 20-40$^{\circ}$N);
+	\item $M_3$ - Intensity of maximum rainfall over China (100-123$^{\circ}$E and 20-40$^{\circ}$N);
 	
 	\item $M_4$ - Area-averaged intensity of China rainfall; 
 	
@@ -318,7 +316,7 @@ $A^2$ can likewise be translated into a $p$-value. The K-S and A-D tests cannot 
 %%% TABLE 3.3 - ALGORITHM FUNCTIONALITY - DETAILS, SECONDARY RAINBAND
 \begin{table}[h]
 
-\caption{Details on the application of quality control (QC) criteria to secondary rainbands. Type I and Type II fits are explained in greater detail in Section 3.5.}
+\caption{Details on the application of quality control (QC) criteria to secondary rainbands. Type I and Type II fits are explained in greater detail in Section 3.4.}
 \centering
 
 \begin{tabular}{ l c}
@@ -460,7 +458,7 @@ $A^2$ can likewise be translated into a $p$-value. The K-S and A-D tests cannot 
 \footnotesize
 \centering
 
-\caption{Mean and standard deviation of mean for metrics $M_1$ to $M_8$ for 1951-1979. $M_1$: Latitude of maximum daily precipitation $(^\circ)$. $M_2$: Intensity-weighted centroid of daily precipitation $(^\circ)$. $M_3$: Intensity of maximum precipitation over China (100-123$^{\circ}$E and 20-40$^{\circ}$N, mm day$^{-1}$). $M_4$: Area-averaged intensity of China rainfall (mm day$^{-1}$). $M_5$: Area-averaged intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N,  mm day$^{-1}$). $M_6$: Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N, mm day$^{-1}$). $M_7$: Frequency of North China rainfall (\%). $M_8$: Frequency of South China rainfall (\%). \textit{Frequency} denotes percentage of days where mean rainfall over specified area exceeds 1 mm day$^{-1}$. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively as subsequently calculated in Table~\ref{tab:t312}.}
+\caption{Mean and standard deviation of mean for metrics $M_1$ to $M_8$ for 1951-1979. $M_1$: Latitude of maximum daily rainfall $(^\circ)$. $M_2$: Intensity-weighted centroid of daily rainfall $(^\circ)$. $M_3$: Intensity of maximum rainfall over China (100-123$^{\circ}$E and 20-40$^{\circ}$N, mm day$^{-1}$). $M_4$: Area-averaged intensity of China rainfall (mm day$^{-1}$). $M_5$: Area-averaged intensity of North China rainfall (107.5-125$^{\circ}$E and 37-42$^{\circ}$N,  mm day$^{-1}$). $M_6$: Mean intensity of South China rainfall (107.5-122.5$^{\circ}$E and 27-33$^{\circ}$N, mm day$^{-1}$). $M_7$: Frequency of North China rainfall (\%). $M_8$: Frequency of South China rainfall (\%). \textit{Frequency} denotes percentage of days where mean rainfall over specified area exceeds 1 mm day$^{-1}$. Standard deviations of means are obtained by a permutation method with 10,000 iterations. Statistically significant changes at the 95\%/99\% level are indicated by bold font/bold font and asterisk respectively as subsequently calculated in Table~\ref{tab:t312}.}
 
 \begin{tabular}{ l c c c c c c c c}
 	 \multicolumn{9}{c}{\textbf{1951-1979 Means}}  \\

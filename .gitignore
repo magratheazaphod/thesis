@@ -19,3 +19,5 @@ jdthesis.bcf
 *.blg
 *.bbl
 *.out
+*ch?only.pdf
+

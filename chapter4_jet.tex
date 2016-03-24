@@ -39,7 +39,7 @@ Over East Asia, positive All-Asia EOF1 years feature a robust southward shift in
 	
 \subsection{Historical Precipitation and Temperature Records}
 
-	We rely on the University of Delaware precipitation data set (UDEL), available at $.5^{\circ}$ by $.5^{\circ}$ resolution for the years 1900-2014. For the testing of statistical significance we use the same years as available in JRA-55, 1958-2013, which also feature higher station coverage than the first half of the \nth{20} century.
+	We rely on the University of Delaware precipitation data set (UDEL) v4.01, available over land only at $.5^{\circ}$ by $.5^{\circ}$ resolution for the years 1900-2014 \citep{Matsuura2015}. Data are assimilated from station records before being interpolated onto the grid. For the testing of statistical significance we use the same years as available in JRA-55, 1958-2013, which also feature higher station coverage than the first half of the \nth{20} century.
 
 	Monthly temperature anomalies from 1958 to 2013 gridded at $1^{\circ}$ by $1^{\circ}$ resolution were obtained from the Berkeley Earth Surface Temperature project, freely available at \url{http://www.berkeleyearth.org/data/} \citep{Rohde2012}. BEST agrees closely with past historical temperature estimates, but the gridless methodology used can incorporate a wider range of temperature records \citep{Rohde2013}. According to their best estimate, global land mean temperature increased by $.89 \pm .06^{\circ}$C from 1950-1959 to 1990-1999. Therefore, in order to compare local temperature anomalies on an even footing, the temperature time series are detrended based on 1958-2013 local slope. At each point, we separate the time series into 12 separate monthly time series (each consisting of 56 Januarys, Februarys and so on) and then detrend each monthly time series based on the 56-point trend in that month.
 	
@@ -65,12 +65,16 @@ Over East Asia, positive All-Asia EOF1 years feature a robust southward shift in
 	
 	These patterns strongly resembles the Circumglobal Teleconnection (hereafter CGT) studied in \citet{Ding2005a}. \citet{Branstator2002} originally found that, in regions of strong meridional temperature gradient such as East Asia, a pattern with zonal wavenumber 5 can extend around the globe, with the tropospheric jet serving as a waveguide favoring the zonal propagation of storms. They were able both to find evidence of such a mode in reanalysis and demonstrate its existence in a simplified model. Figure 1c of \citet{Branstator2002} closely resembles our Figure ~\ref{fig:cgt_zonal}d. Looking more closely at Figures 5b and c of \citet{Ding2005a} we find that they are practically identical to our Figures ~\ref{fig:cgt_z}a and ~\ref{fig:cgt_z}b (with sign inverted), including the set of changes between July and August. Furthermore, geopotential height anomalies of the studied global wavetrains in both \citet{Branstator2002} and \citet{Ding2005a} are consistently barotropic except over India ~\ref{fig:cgt_z}. We conclude that the mid-latitude wavetrain associated with All-Asia EOF1 and the CGT as defined by \citet{Ding2005a} are the same pattern.
 	
-	Another way of displaying the same wavetrain pattern is to consider the upper-level meridional wind (V200). Since the zonal mean of meridional wind is 0 \citep{Ding2007} and also near-zero in composites, waves are apparent without additional filtering. Figure ~\ref{fig:cgt_v} shows V200 for the July and August composites. The number of lobes can easily be counted, and the July wavetrain appears to be of wavenumber 6 while August is of wavenumber 5. From the Aleutian Islands to the eastern United States, the pattern of meridional wind anomalies in fact reverses from July to August, while remaining largely similar over Eurasia, showing substantial change between July and August. The existence of substantial differences between the July and August wavetrain patterns was also found in \citet{Ding2005a}. Although \citet{Day2015} argues that July and August All-Asia EOF1 are highly similar over the Asian monsoon region, this is evidently not true at the global scale.
+	Another way of displaying the same wavetrain pattern is to consider the upper-level meridional wind (V200). Since the zonal mean of meridional wind is 0 and also near-zero in composites, waves are apparent without additional filtering \citep{Branstator2002}. Figure ~\ref{fig:cgt_v} shows V200 for the July and August composites. The number of lobes can easily be counted, and the July wavetrain appears to be of wavenumber 6 while August is of wavenumber 5. From the Aleutian Islands to the eastern United States, the pattern of meridional wind anomalies in fact reverses from July to August, while remaining largely similar over Eurasia, showing substantial change between July and August. The existence of substantial differences between the July and August wavetrain patterns was also found in \citet{Ding2005a}. Although \citet{Day2015} argues that July and August All-Asia EOF1 are highly similar over the Asian monsoon region, this is evidently not true at the global scale.
+	
+	Finally, we consider the global distribution of temperature and precipitation anomalies associated with All-Asia EOF1. Positive and negative temperature composites were derived from detrended monthly temperature anomalies from BEST, while precipitation composites were obtained from University of Delaware's monthly precipitation record, as described in greater detail in the Methods section.
 
 %%% PARAGRAPH ON PREDICTIVITY OF ALL-NEPAL MONSOON RAINFALL - probably not strong enough to be included, unnecessary.	
 %	In \citep{Day2015}, we discussed the potential of All-Nepal Monsoon Rainfall (ANMR) as representative of All-Asia EOF1-type variability. Here we show that ANMR has some predictive power on CGT-type patterns. Using a different set of composite years chosen as extreme years of All-Nepal Monsoon Rainfall (Table ~\ref{tab:t42}), we repeat the process in Figure ~\ref{fig:cgt_z} for July (several years overlap with peak All-Asia EOF1 years). In August, only a faint CGT pattern is found (not shown), so it may be more reasonable to suggest that the CGT and All-Nepal Monsoon Rainfall are both driven by the same external variability.  
-		
-%% NEED A PARAGRAPH DISCUSSING HOW JRA-55 COMPOSITES SUPPORT HYPOTHESIS FROM CHAPTER 2 - also just need to expand description of figures included, let them do the work.
+
+
+
+
 \subsection{Regional Changes Associated with All-Asia EOF1}
 
 \subsubsection{Moisture Transport Across the Yunnan Plateau}
@@ -181,7 +185,7 @@ Over East Asia, positive All-Asia EOF1 years feature a robust southward shift in
 	
 \section{Acknowledgments}
 
-	Significant portions of the current work were produced in collaboration with Jacob Edman and John Chiang and under the guidance of Inez Fung. The formula for column-integrated heating was retrieved from \url{http://ds.data.jma.go.jp/gmd/jra/atlas/en/D_HEATcol.html}.
+	Significant portions of the current work were produced in collaboration with Jacob Edman and John Chiang and under the guidance of Inez Fung. The formula for column-integrated heating was retrieved from the JRA-55 climatological atlas at \url{http://ds.data.jma.go.jp/gmd/jra/atlas/en/D_HEATcol.html}. University of Delaware precipitation is freely downloadable at \url{http://climate.geog.udel.edu/~climate/html_pages/download.html}.
 
 
 \newpage	
@@ -251,7 +255,15 @@ Over East Asia, positive All-Asia EOF1 years feature a robust southward shift in
 \begin{figure}
 \centering
 \noindent\includegraphics[width=36pc]{Figures/ch4/CGT_v}
-\caption{Composite anomalies in 200-mb meridional wind (V200) in a) July and b) August, both of which show a robust global mid-latitude standing wave. As explained in Figure ~\ref{fig:cgt_z} and in main text, $p$-values shown at top-right indicate statistical significance of entire pattern between 20$^{\circ}$N and 65$^{\circ}$N}
+\caption{Composite anomalies in 200-mb meridional wind (V200) in a) July and b) August, both of which show a robust global mid-latitude standing wave. As explained in Figure ~\ref{fig:cgt_z} and in main text, $p$-values shown at top-right indicate statistical significance of entire pattern between 20$^{\circ}$N and 65$^{\circ}$N.}
+\label{fig:cgt_v}
+\end{figure}
+
+%% FIGURE 4.4 - temperature and rainfall anomalies
+\begin{figure}
+\centering
+\noindent\includegraphics[width=36pc]{Figures/ch4/CGT_PT}
+\caption{Insert caption here.}
 \label{fig:cgt_v}
 \end{figure}
 

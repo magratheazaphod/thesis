@@ -79,6 +79,18 @@
 \usepackage{scrextend} %allows for indented text
 \usepackage{listings} %allows us to display code inline.
 \usepackage{pdflscape} %allows us to display individual pages within the  document in landscape mode.
+\usepackage{csquotes} %add ability to insert block quotes
+\renewenvironment{quoteblock}{\openautoquote}{\closeautoquote}
+\usepackage{attrib} %allows us to sign block quote with author name on right.
+\def\PreTrib{} \def\PostTrib{} %no parentheses around author citation with block quote
+
+%format block quotes more smallly
+\newenvironment*{smallquote}
+  {\quote\smaller}
+  {\endquote}
+
+% set csquotes to use the new environment:
+\SetBlockEnvironment{smallquote}
 
 %%Show doi numbers correctly
 \usepackage{doi}
@@ -138,7 +150,7 @@
 %\approvalpage
 \copyrightpage
 
-\include{abstract}
+\include{jdabstract}
 
 \begin{frontmatter}
 
@@ -161,7 +173,24 @@
 \listoftables
 
 \begin{acknowledgements}
-Before all else, none of this could have been possible without the love of my mom and dad...Thank you to Amy Honigmann for keeping me sane, and to Sonya Juang for believing in me and helping me to push through to the finish line.
+Before all else, none of what I have achieved would be possible without the unconditional love of my mom Catherine and my dad Clayton. I consider them the two most exceptional humans I know. They have sacrificed for me and my education in ways that have taken me many years to comprehend. From my first day in California, they have been incessant listeners, believers, reviewers and unpaid editors. I could not have made it this far without you. Finishing this dissertation seems like the least that I can achieve in repayment. I love you both.
+
+Inez has been an incredible mentor. From the first day that I walked into her office, she has believed in my potential even when I had little faith in my own. I believe that Inez is the embodiment of a true scientist, committed to simplicity and truth and to educating the next generation. She has an eagerness to learn and belief in the scientific process that is infectious, and the gift of reducing complex systems to their hidden key filaments. She selflessly dedicates time to others, whether to graduate students from other groups, former students or undeclared undergraduates, all with their best interest in mind and no regard to her own benefit. I have also benefited from Inez's ability to place current research in historical context, explaining the decades of key discoveries and false turns that led to the current consensus. Working with Inez has been a privilege that I will bear with me for the rest of my life. I hope that I can mentor others as she has done for me.
+
+I have benefited from the mentorship and encouragement of many other great scientists. Thank you first to John Chiang. I highly respect your even-keeled approach to scientific discussion and compassionate mentorship. Thank you to David Battisti, Peter Molnar, Shang-Ping Xie, Camille Risi and Yanjun Cai for believing in my work and investing the time to understand my research. I would also like to thank Peter, Marin Clark, Zhisheng An and others for organizing the series of Tibetan Plateau schools and workshops, which provided an essential forum for my development as a scientist. Thank you to Fung alumni Zan Stine and Jung-Eun Lee and to Prabhat for your help and encouragement, and also to my peers Lydia Staisch, Petr Yakovlev, Xiaojuan Liu, Jinqiang Chen and Anna Merrifield.
+
+I would like to thank all of the members of the Fung group over my years at Berkeley. Percy Link, thank you for welcoming me to 301. Thank you to Ju-Mee Ryoo, Stephanie Wuerth, Jiabin Liu, Holly Maness, Michail Vrettas, Meghan Thurlow, Mark Yashar, Octavia Crompton, Teresa Bilir and Jeremy Randolph-Flagg for making McCone a warmer place. Thank you also to the broader Berkeley atmospheric community, in particular Tripti Bhattacharya, Wenwen Kong, my coauthor Jake Edman, Yuwei Liu, Andrew Friedman, Jelena Lukovic, Yoshi Mondal, Nadir Jeevanjee, Jake Seeley, Ben Fildier, Da Yang, Leif Swenson, Megan Vieira, Ben Nault and Xueling Liu. Thank you to our group manager David Elvins for tirelessly helping us, and to Margie Winn and the McCone administrative staff, including Chrystel Catambay, Jann Michael Pandanganan and Nadine Spingola-Hutton.
+
+Thank you to my peers from my incoming EPS class, Shuo Zhang, Andrea Chiang, Carolina Mu\~{n}oz, Ana Martinez-Poza and Jenn Frederick, and my friends in the department, including David Mangiante, my partner-in-crime Noah Randolph-Flagg, Chelsea `Charks' Willett, Seth Saltiel, Pam Kaercher, Mong-Han Chen, Daniella Rempe, Mike Antonelli, Jordan Mizerak, Sanne Cottaar, Brent Delbridge, William Hawley, Nick Knezek, Marissa Tremblay, Courtney Sprain, Tom Smart, Liz Mitnick, Alex Bryk, Steve Breen, Hannah Bourne, Elizabeth Niespolo, Laura MacLean, Qingkai Kong, Shuai Zhang, Cheng Cheng, Heidi Fuqua, Jesse Hahm, Chris Johnson, Avinash Nayak, Katie Wooddell, Eloisa Zepeda-Alarcon and many I've omitted, for making the journey to this point much more fun. 
+
+I would like to thank a few friends from Yale without whom I would never have ended up at this point. Ian, in the 10+ years since we were freshman roommates, I have fed off of your intellectual curiosity and been inspired to follow your footsteps, first into the physics major, and then to EPS at Berkeley. Robert and Daniel, thank you for preserving my sanity as we each navigated the eddies of our respective graduate school experiences. Minh, thank you for your generosity. By inviting me to stay with your family in Saigon in 2007, you set me on the course that eventually led to this dissertation. Thank you also to Yale's Richard U. Light Fellowship for funding me to spend a year in Beijing learning Chinese intensively, during which time I became resolved to use my undergraduate degree in physics on issues of the environment.
+
+As part of my double life as competitive Scrabble player, I belong to an exceptional community of brilliant, fun people who have reminded me of what matters in life even through the hard times. Thanks to XP, KC, Ed, C\'{e}sar, James, Kate, Gab, Cecilia, John, Conrad and Doug for reminding me on a weekly basis how lucky I am. Thank you also to the broader community for making me feel welcome no matter where in the world I go.
+
+I would like to thank the University of California-Berkeley's ultimate frisbee B team, better known as Thugmo. Both as teammate and coach, the team allowed me to stay connected to a sport that I love and provided a counterweight to my academic pursuit. Thank you to those that I coached for being good friends, working hard and making my job easy. Thank you to my former students in EPS50, many of whom are already blooming into great scientists. Thank you to my Thai language teacher Supatraa Chowchuvech for treating me as seriously as her other students. Thank you to my surgeon Dr. Bob Eppley and my physical therapist Mike Branzel for allowing me to recover from my torn ACL and meniscus in time for me to pass my qualifying exam. In the same vein, thank you to Jos\'{e}, Naso and Jes\'{u}s for letting me use Caffe Nefeli as my surrogate office during quals prep when being on crutches prevented me from transporting coffee. Thank you also to the fine folks at Stuffed Inn, Hummingbird Cafe and Abe's Cafe for always making me feel welcome no matter how long the absence.
+
+Lastly, thank you to Berkeley's Counseling and Psychological Services division, and in particular to my therapist Amy Honigmann for helping me through the last few years. In an academic climate where 47\% of UC Berkeley Ph. D. students report experiencing depression, I feel that it is too important for me not to acknowledge my own struggles, and the love of my family and friends that brought me back to happiness. Finally, my love to Sonya for believing in me and helping me push through to the finish line.
+
 \end{acknowledgements}
 
 \end{frontmatter}
